@@ -10,9 +10,10 @@ import Success from './pages/Success'
 function App() {
   return (
     <>
-      <Route path='/Home'><Home/></Route>
-      <Route path='/OrderPizza'><OrderPizza/></Route>
-      <Route path='/Success'><Success/></Route>
+      <Route exact path='/'><Home/></Route>
+      <Route exact path='/Home'><Home/></Route>
+      <Route exact path='/OrderPizza'><OrderPizza/></Route>
+      <Route exact path='/Success'><Success/></Route>
     </>
   )
 }

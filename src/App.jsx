@@ -10,7 +10,6 @@ import Success from './pages/Success'
 function App() {
   return (
     <>
-      <h1>Yildiz</h1>
       <Route path='/Home'><Home/></Route>
       <Route path='/OrderPizza'><OrderPizza/></Route>
       <Route path='/Success'><Success/></Route>

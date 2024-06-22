@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import BannerImage from '../../Interfaces/Iteration-1/banner.png';
+import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -17,41 +18,42 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  min-height: 100vh; 
-  width: 100%;
-  justify-content:flex-end;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 2rem;
+min-height: 100vh; 
+width: 100%;
+justify-content:flex-end;
 `;
 
 const TitleFirst = styled.div`
-  font-size: 2rem;
-  color: white;
+font-size: 2rem;
+color: white;
 `;
 
 const TitleSecond = styled.div`
-  font-size: 4rem;
-  color: white;
-  text-align: center;
+font-size: 4rem;
+color: white;
+text-align: center;
 `;
 
-const Button = styled.div`
-  background-color: #FDC913;
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  width: 10%;
-  text-align: center; 
-  cursor: pointer;
+const Button = styled(Link)`
+color:black;
+background-color: #FDC913;
+padding: 0.5rem 1rem;
+border-radius: 2rem;
+width: 10%;
+text-align: center; 
+cursor: pointer;
 `;
 
 const Banner = styled.div`
-  background-image: url(${BannerImage});
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 500px; 
+background-image: url(${BannerImage});
+background-size: cover;
+background-position: center;
+width: 100%;
+height: 500px; 
 `;
 
 export default function Home() {
@@ -61,7 +63,7 @@ export default function Home() {
       <PageWrapper>
         <TitleFirst>Teknolojik Yemekler</TitleFirst>
         <TitleSecond>KOD ACIKTIRIR <br />PIZZA, DOYURUR</TitleSecond>
-        <Button>ACIKTIM</Button>
+        <Button to="/OrderPizza">ACIKTIM</Button>
         <Banner />
       </PageWrapper>
     </>

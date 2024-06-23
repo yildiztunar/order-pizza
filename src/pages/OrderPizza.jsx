@@ -38,7 +38,7 @@ const Banner = styled.div`
   align-items:center;
 `;
 
-const TitleFirst = styled.div`
+const Header = styled.div`
   width: 50%;
   font-size: 2rem;
   color: white;
@@ -285,11 +285,9 @@ function handleSubmit(event) {
     });
 }
 
-
 function validateIsim(isim) {
     return isim.length >= 3;
 }
-
 
 function validateSiparisNotu(siparisNotu) {
     return siparisNotu.length >= 3;
@@ -359,13 +357,12 @@ function handleChange(event) {
 }
 
 
-
   return (
     <>
       <GlobalStyle />
       <PageWrapper>
         <Banner>
-          <TitleFirst>Teknolojik Yemekler</TitleFirst>
+          <Header>Teknolojik Yemekler</Header>
           <MenuItems>Anasayfa - Siparis Olustur</MenuItems>
         </Banner>
         <MainPage>
@@ -380,7 +377,7 @@ function handleChange(event) {
             </Detaylar>
         <Description>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</Description>
           
-          <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
 
         <BoyutHamurSec>
         <Row>
@@ -427,6 +424,7 @@ function handleChange(event) {
         <Description2>En Fazla 10 malzeme secebilirsiniz. 5TL</Description2>
         </EkMalzemelerMetin>
         <EkMalzemeSecenekler>
+    
     <Label>
     <input
       type="checkbox"

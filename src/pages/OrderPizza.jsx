@@ -335,7 +335,7 @@ function handleChange(event) {
       } else {
         setFormData({ ...formData, [name]: value });
 
-        if (name === "isim") {
+    if (name === "isim") {
             setErrors({ ...errors, isim: !validateIsim(value) });
         } else if (name === "siparisNotu") {
             setErrors({ ...errors, siparisNotu: !validateSiparisNotu(value) });

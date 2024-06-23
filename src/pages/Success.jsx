@@ -17,24 +17,29 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const PageWrapper = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 2rem;
-min-height: 100vh; 
-width: 100%;
-justify-content:flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  min-height: 100vh; 
+  width: 100%;
 `;
 
 const TitleFirst = styled.div`
-font-size: 2rem;
-color: white;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  display:flex;
+  flex: 1;
+  padding-top:4.8rem;
 `;
 
 const TitleSecond = styled.div`
-font-size: 4rem;
-color: white;
-text-align: center;
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  display:flex;
+  flex: 2; 
 `;
 
 
@@ -44,7 +49,8 @@ export default function Success() {
       <GlobalStyle />
       <PageWrapper>
         <TitleFirst>Teknolojik Yemekler</TitleFirst>
-        <TitleSecond>TEBRIKLER!<BR></BR>SIPARISINIZ ALINDI!</TitleSecond>
+        <TitleSecond>TEBRIKLER!<br />SIPARISINIZ ALINDI!</TitleSecond>
+        
       </PageWrapper>
     </>
   );

@@ -12,14 +12,9 @@ function App() {
     <>
       <Route exact path='/'><Home/></Route>
       <Route exact path='/Home'><Home/></Route>
-      <Route exact path='/OrderPizza'><OrderPizza/></Route>
+      <Route data-cy="route-OrderPizza" exact path='/OrderPizza'><OrderPizza/></Route>
       <Route exact path='/Success'><Success/></Route>
 
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/OrderPizza" data-cy="route-OrderPizza">Order Pizza</Link>
-        <Link to="/Success">Success</Link>
-      </div>
     </>
   )
 }

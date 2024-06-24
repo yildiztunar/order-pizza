@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import BannerImage from '../../Interfaces/Iteration-1/banner.png';
+import BannerImage from '../../Assets/mile1-assets/home-banner.png';
 import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
@@ -13,8 +13,13 @@ const GlobalStyle = createGlobalStyle`
     margin: auto;
     padding: 0;
     width: 100%;
-    background-color: #CE2829;
+
   }
+    body {
+    background-image: url(${BannerImage});
+    background-size: cover;
+    background-position: center;
+    }
 `;
 
 const PageWrapper = styled.div`
@@ -49,9 +54,6 @@ cursor: pointer;
 `;
 
 const Banner = styled.div`
-background-image: url(${BannerImage});
-background-size: cover;
-background-position: center;
 width: 100%;
 height: 500px; 
 `;

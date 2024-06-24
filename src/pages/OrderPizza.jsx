@@ -387,7 +387,7 @@ function handleChange(event) {
         <BoyutSecenekleri>
         <div>
         <Input type="radio" id="kucuk" name="boyut" value={formData.boyut} onChange={handleChange}/>
-        <Label htmlFor="kucuk"> Küçük</Label>
+        <Label htmlFor="kucuk" data-cy="input-boyut"> Küçük</Label>
         </div>
         <div>
         <Input type="radio" id="orta" name="boyut" value={formData.boyut} onChange={handleChange}/>
@@ -407,10 +407,10 @@ function handleChange(event) {
         </Titles>
         <HamurKalinligi>
         <select name="hamur" id="hamur" onChange={handleChange}>
-        <option value="">Hamur Kalınlığı Seçiniz</option>
-        <option value="ince">İnce</option>
+        <option value="">Hamur Kalinligi Seçiniz</option>
+        <option value="ince" data-cy="input-hamur">Ince</option>
         <option value="orta">Orta</option>
-        <option value="kalin">Kalın</option>
+        <option value="kalin">Kalin</option>
         </select>
         </HamurKalinligi>
         {errors.hamur && <ErrorMessage>{errorMessages.hamur}</ErrorMessage>}
@@ -432,6 +432,7 @@ function handleChange(event) {
       value="Pepperoni"
       checked={formData.ekMalzemeler.includes("Pepperoni")}
       onChange={handleChange}
+      data-cy="checkbox-1"
     />
      Pepperoni
     </Label>
@@ -442,6 +443,7 @@ function handleChange(event) {
       value="Sosis"
       checked={formData.ekMalzemeler.includes("Sosis")}
       onChange={handleChange}
+      data-cy="checkbox-2"
     />
      Sosis
     </Label>
@@ -452,6 +454,7 @@ function handleChange(event) {
       value="Kanada Jambonu"
       checked={formData.ekMalzemeler.includes("Kanada Jambonu")}
       onChange={handleChange}
+      data-cy="checkbox-3"
     />
     Kanada Jambonu
     </Label>
@@ -462,6 +465,7 @@ function handleChange(event) {
       value="Tavuk Izgara"
       checked={formData.ekMalzemeler.includes("Tavuk Izgara")}
       onChange={handleChange}
+      data-cy="checkbox-4"
     />
     Tavuk Izgara
     </Label>
@@ -573,14 +577,14 @@ function handleChange(event) {
             <Row>
             <Titles>
               <Label htmlFor="isim">Isim:</Label></Titles>
-              <StyledInput type="text" id="isim" name="isim" rows="1" placeholder='Isminizi girin.' value={formData.isim} onChange={handleChange}/>
+              <StyledInput type="text" id="isim" name="isim" rows="1" placeholder='Isminizi girin.' value={formData.isim} onChange={handleChange} data-cy="input-isim"/>
               {errors.isim && <ErrorMessage>{errorMessages.isim}</ErrorMessage>}
             </Row>
 
             <Row>
             <Titles>
               <Label htmlFor="siparisNotu">Siparis Notu:</Label></Titles>
-              <StyledInput type="text" id="siparisNotu" name="siparisNotu" rows="1" placeholder='Siparisine eklemek istedigin bir not var mi?' value={formData.siparisNotu} onChange={handleChange}/>
+              <StyledInput type="text" id="siparisNotu" name="siparisNotu" rows="1" placeholder='Siparisine eklemek istedigin bir not var mi?' value={formData.siparisNotu} onChange={handleChange} data-cy="input-siparisNotu"/>
               {errors.siparisNotu && <ErrorMessage>{errorMessages.siparisNotu}</ErrorMessage>}
             </Row>
 
@@ -600,7 +604,7 @@ function handleChange(event) {
         <SecimlerWrapper><Secimler>Secimler</Secimler><SecimlerTL>{ekMalzemeToplam*adet} TL</SecimlerTL></SecimlerWrapper>
         <ToplamWrapper><Toplam>Toplam</Toplam><ToplamTL>{(85.50 + ekMalzemeToplam) * adet} TL</ToplamTL></ToplamWrapper>
         </SiparisMetinler>
-        <SiparisVer type="submit" disabled={!isValid}>SIPARIS VER</SiparisVer>
+        <SiparisVer type="submit" disabled={!isValid} data-cy="submit-orderPizza-form">SIPARIS VER</SiparisVer>
     </SiparisToplami>
 
     </Ozet>

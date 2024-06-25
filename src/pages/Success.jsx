@@ -32,6 +32,8 @@ const TitleFirst = styled.div`
   display:flex;
   flex: 1;
   padding-top:4.8rem;
+  font-family: "Barlow", sans-serif;
+  font-weight:bold;
 `;
 
 const TitleSecond = styled.div`
@@ -39,7 +41,9 @@ const TitleSecond = styled.div`
   color: white;
   text-align: center;
   display:flex;
-  flex: 2; 
+  flex: 2;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight:lighter;
 `;
 
 

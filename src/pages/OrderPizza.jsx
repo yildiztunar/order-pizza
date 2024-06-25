@@ -23,8 +23,9 @@ const PageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  min-height: 100vh; 
+  min-height: 100vh;
   width: 100%;
+  font-family: "Barlow", sans-serif;
 `;
 
 const Banner = styled.div`
@@ -32,24 +33,27 @@ const Banner = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  min-height: 10vh; 
-  width: 100%;
+  width: 99vw;
   padding: 1rem;
-  align-items:center;
+  align-items: center;
+  margin: 0; 
+  position: relative;
 `;
 
 const Header = styled.div`
-  width: 50%;
+  font-family: "Barlow", sans-serif;
+  font-weight:bold;
+  width: 100%;
   font-size: 2rem;
   color: white;
+  text-align: center;
 `;
 
 const MenuItems = styled.p`
-  width: 50%;
   font-size: 1rem;
   color: white;
-  display:flex;
-  text-align: left;
+  text-align: center;
+
 `;
 
 const MainPage = styled.div`
@@ -97,9 +101,8 @@ color: #5F5F5F;
 
 const BoyutHamurSec = styled.div`
 display:flex;
-gap:20rem;
 width:100%;
-justify-content: flex-start;
+justify-content: space-between;
 padding: 1rem 0;
 `
 
@@ -110,6 +113,7 @@ text-align:left;
 
 const HamurKalinligi = styled.div`
 padding-top:1rem;
+padding-right:8rem;
 `
 
 const Titles = styled.p`
@@ -119,7 +123,7 @@ font-weight: bold;
 const EkMalzemeler = styled.div`
 display:flex;
 flex-direction:column;
-padding: 1rem 0 5rem 0;
+padding: 1rem 0 1rem 0;
 `
 
 const EkMalzemelerMetin = styled.div`
@@ -222,6 +226,7 @@ const SiparisVer = styled(Button)`
 background-color:#FDC913;
 width:100%;
 border-radius: 0.2rem;
+font-weight:bold;
 `
 
 const ErrorMessage=styled.p`
@@ -407,7 +412,7 @@ function handleChange(event) {
         </Titles>
         <HamurKalinligi>
         <select name="hamur" id="hamur" onChange={handleChange}>
-        <option value="">Hamur Kalinligi Seçiniz</option>
+        <option value="">Hamur Kalinligi</option>
         <option value="ince" data-cy="input-hamur">Ince</option>
         <option value="orta">Orta</option>
         <option value="kalin">Kalin</option>

@@ -35,12 +35,16 @@ justify-content:flex-end;
 const TitleFirst = styled.div`
 font-size: 2rem;
 color: white;
+  font-family: "Barlow", sans-serif;
+  font-weight:bold;
 `;
 
 const TitleSecond = styled.div`
 font-size: 4rem;
 color: white;
 text-align: center;
+font-family: "Roboto Condensed", sans-serif;
+font-weight:lighter;
 `;
 
 const Button = styled(Link)`

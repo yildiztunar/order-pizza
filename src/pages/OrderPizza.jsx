@@ -1,8 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { Form, Label, Input, Button, Row } from 'reactstrap';
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import Success from './Success';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -286,7 +287,16 @@ function handleSubmit(event) {
     axios.post(URL, formData).then((response)=> {
         setFormData(initialFormData);
         console.log(response)
-        history.push("/success");
+        history.push({
+          pathname: "/success",
+          state: {
+            boyut: formData.boyut,
+            hamur: formData.hamur,
+            ekMalzemeler: formData.ekMalzemeler,
+            ekMalzemeToplam: ekMalzemeToplam,
+            adet: adet
+        }
+        });
     });
 }
 
@@ -391,15 +401,15 @@ function handleChange(event) {
         </Titles>
         <BoyutSecenekleri>
         <div>
-        <Input type="radio" id="kucuk" name="boyut" value={formData.boyut} onChange={handleChange}/>
+        <Input type="radio" id="kucuk" name="boyut" value="kucuk" onChange={handleChange}/>
         <Label htmlFor="kucuk" data-cy="input-boyut"> Küçük</Label>
         </div>
         <div>
-        <Input type="radio" id="orta" name="boyut" value={formData.boyut} onChange={handleChange}/>
+        <Input type="radio" id="orta" name="boyut" value="orta" onChange={handleChange}/>
         <Label htmlFor="orta"> Orta</Label>
         </div>
         <div>
-        <Input type="radio" id="buyuk" name="boyut" value={formData.boyut} onChange={handleChange}/>
+        <Input type="radio" id="buyuk" name="boyut" value="buyuk" onChange={handleChange}/>
         <Label htmlFor="buyuk"> Büyük</Label>
         </div>
         </BoyutSecenekleri>
@@ -619,5 +629,8 @@ function handleChange(event) {
     </MainPage>
     </PageWrapper>
     </>
+  
+
   );
+  
 }

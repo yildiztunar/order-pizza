@@ -8,13 +8,18 @@ import Home from './pages/Home'
 import Success from './pages/Success'
 
 function App() {
+  
+  
   return (
     <>
       <Route exact path='/'><Home/></Route>
       <Route exact path='/Home'><Home/></Route>
       <Route data-cy="route-OrderPizza" exact path='/OrderPizza'><OrderPizza/></Route>
-      <Route exact path='/Success'><Success/></Route>
-
+      <Route
+          path="/success"
+          render={(props) => <Success {...props.location.state} />}
+        />
+    
     </>
   )
 }

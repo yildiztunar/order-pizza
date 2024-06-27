@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import BannerImage from '../../Assets/mile1-assets/home-banner.png';
+import OzelLezzetus from "../../Assets/mile2-aseets/cta/kart-1.png";
 import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
@@ -22,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const PageWrapper = styled.div`
+const BannerWrapper = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -62,16 +63,77 @@ width: 100%;
 height: 500px; 
 `;
 
+const Secenekler = styled.div`
+display:flex;
+gap: 5rem;
+justify-content:center;
+padding: 2rem 0;
+`
+
+const Secenek = styled.div`
+display:flex;
+text-align:center;
+gap:1rem;
+align-items:center;
+`
+
+const MiddleWrapper = styled.div`
+display:flex;
+`
+
+const OnerilerFull = styled.div`
+display: flex;
+gap:1rem;
+`
+const OnerilerLeft = styled.div`
+background-image: url(${OzelLezzetus});
+background-size:100%
+`
+const OnerilerRight = styled.div`
+display:flex;
+flex-direction: column;
+gap:1rem;
+`
+
+
 export default function Home() {
   return (
     <>
       <GlobalStyle />
-      <PageWrapper>
+      <BannerWrapper>
         <TitleFirst>Teknolojik Yemekler</TitleFirst>
         <TitleSecond>KOD ACIKTIRIR <br />PIZZA, DOYURUR</TitleSecond>
         <Button to="/OrderPizza">ACIKTIM</Button>
         <Banner />
-      </PageWrapper>
+      </BannerWrapper>
+      
+      <Secenekler>
+        <Secenek><img src="../../Assets/mile2-aseets/icons/1.svg" alt="YENI! Kore"/>YENI! Kore</Secenek>
+        <Secenek><img src="../../Assets/mile2-aseets/icons/2.svg" alt="Pizza"/>Pizza</Secenek>
+        <Secenek><img src="../../Assets/mile2-aseets/icons/3.svg" alt="Burger"/>Burger</Secenek>
+        <Secenek><img src="../../Assets/mile2-aseets/icons/4.svg" alt="Kizartmalar"/>Kizartmalar</Secenek>
+        <Secenek><img src="../../Assets/mile2-aseets/icons/5.svg" alt="Fast Food"/>Fast Food</Secenek>
+        <Secenek><img src="../../Assets/mile2-aseets/icons/6.svg" alt="Gazli Icecek"/>Gazli Icecek</Secenek>
+      </Secenekler>
+
+      <MiddleWrapper>
+      <OnerilerFull>
+
+      <OnerilerLeft>
+      
+      </OnerilerLeft>
+
+      <OnerilerRight>
+
+      </OnerilerRight>
+
+      </OnerilerFull>
+
+
+
+      </MiddleWrapper>
+
+
     </>
   );
 }

@@ -40,7 +40,7 @@ const Banner = styled.div`
   flex-direction: column;
   gap: 2rem;
   width: 99vw;
-  padding: 1rem;
+  padding: 2rem;
   align-items: center;
   margin: 0; 
   position: relative;
@@ -67,7 +67,7 @@ const MainPage = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: 50%;
+  width: 70%;
   padding: 1rem;
   
 `;
@@ -107,6 +107,8 @@ color: #5F5F5F;
 
 const SelectSizeDough = styled.div`
 display:flex;
+flex-wrap: wrap;
+gap: 2rem;
 width:100%;
 justify-content: space-between;
 padding: 1rem 0;
@@ -119,7 +121,10 @@ text-align:left;
 
 const DoughThickness = styled.div`
 padding-top:1rem;
-padding-right:8rem;
+padding-right: 15rem;
+text-align:left;
+
+
 `
 const NameNoteWrapper = styled.div`
 padding: 1rem 0 1rem 0;
@@ -143,7 +148,7 @@ label {
     padding: 10px;
     border:#5F5F5F solid 0.01rem;
     border-radius: 0.3rem;
-    width:50%;
+    width: 19rem;
   }
 
 `
@@ -172,11 +177,13 @@ border-radius: 0.5rem;
 const Separator = styled.div`
 border-bottom: #5F5F5F solid 0.05rem;
 margin: 2rem 0 ;
+min-width:18rem;
 `
 
 const Summary = styled.div`
 padding: 1rem 0 1rem 0;
 display:flex;
+gap: 1rem;
 justify-content:space-between;
 `
 
@@ -210,10 +217,10 @@ align-content:center;
 const OrderTotal = styled.div`
 border:#5F5F5F solid 0.05rem;
 border-radius: 0.5rem;
-width:70%;
+width:25rem;
 `
 const OrderTexts = styled.div`
-padding:3rem 3rem;
+padding:1rem 1rem;
 `
 const SelectionsWrapper = styled.p`
 display:flex;
@@ -296,7 +303,7 @@ useEffect(()=> {
     } else {
         setIsValid(false)
     }
-}, {formData})
+}, [formData])
 
 
 function handleSubmit(event) {

@@ -69,7 +69,7 @@ describe("FAIL", ()=> {
     cy.get('[data-cy="submit-orderPizza-form"]').click();
     //assert
     cy.get('[data-cy="errors"]').should("have.length",5)
-    cy.contains("En az 4 ve en fazla 10 adet secim yapiniz.").should("be.visible");
+    cy.contains("Please choose at least 4 and at most 10 options.").should("be.visible");
   });
 })
 

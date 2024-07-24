@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 const IngredientsStyle = styled.div`
   display: grid;
@@ -7,6 +7,7 @@ const IngredientsStyle = styled.div`
   text-align: left;
   color: #292929;
   font-weight: bold;
+  
 
   label {
     margin: 5px 0;

@@ -30,17 +30,18 @@ align-items: center;
 gap: 2rem;
 min-height: 100vh; 
 width: 100%;
-justify-content:flex-end;
+justify-content:flex-start;
+padding-top: 8rem;
 `;
 
-const TitleFirst = styled.div`
-font-size: 2rem;
-color: white;
+const H1 = styled.h1`
+  font-size: 2rem;
+  color: white;
   font-family: "Barlow", sans-serif;
-  font-weight:bold;
+  font-weight: bold
 `;
 
-const TitleSecond = styled.div`
+const H2 = styled.h2`
 font-size: 4rem;
 color: white;
 text-align: center;
@@ -56,11 +57,6 @@ border-radius: 2rem;
 width: 20%;
 text-align: center; 
 cursor: pointer;
-`;
-
-const Banner = styled.div`
-width: 100%;
-height: 50vh; 
 `;
 
 const Options = styled.div`
@@ -83,10 +79,10 @@ export default function Home() {
     <>
       <GlobalStyle />
       <BannerWrapper>
-        <TitleFirst>Technological Meals</TitleFirst>
-        <TitleSecond>CODE IS UNAPPETIZING,  <br />PIZZA IS SATISFYING</TitleSecond>
+        <H1>Technological Meals</H1>
+        <H2>CODE IS UNAPPETIZING,  <br />PIZZA IS SATISFYING</H2>
         <Button to="/OrderPizza">I'M HUNGRY!"</Button>
-        <Banner />
+        
       </BannerWrapper>
       
       <Options>

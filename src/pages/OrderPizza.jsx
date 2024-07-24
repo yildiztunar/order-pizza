@@ -3,7 +3,12 @@ import { Form, Label, Input, Button, Row } from 'reactstrap';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import Success from './Success';
+import EkMalzemeSecenekler from '../components/EkMalzemeSecenekler';
+import HamurSecimi from '../components/HamurSecimi';
+import BoyutSecimi from '../components/BoyutSecimi';
+import IsimInput from '../components/IsimInput';
+import SiparisNotuInput from '../components/SiparisNotuInput';
+
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -133,7 +138,7 @@ flex-direction:column;
 padding: 1rem 0;
 `
 
-const EkMalzemeSecenekler = styled.div`
+const EkMalzemeSeceneklerStyle = styled.div`
 display:grid;
 grid-template-columns:repeat(3, 1fr);
 text-align:left;
@@ -400,18 +405,7 @@ function handleChange(event) {
         <Label htmlFor='boyut'>Boyut Sec</Label><br></br>
         </Titles>
         <BoyutSecenekleri>
-        <div>
-        <Input type="radio" id="kucuk" name="boyut" value="kucuk" onChange={handleChange}/>
-        <Label htmlFor="kucuk" data-cy="input-boyut"> Küçük</Label>
-        </div>
-        <div>
-        <Input type="radio" id="orta" name="boyut" value="orta" onChange={handleChange}/>
-        <Label htmlFor="orta"> Orta</Label>
-        </div>
-        <div>
-        <Input type="radio" id="buyuk" name="boyut" value="buyuk" onChange={handleChange}/>
-        <Label htmlFor="buyuk"> Büyük</Label>
-        </div>
+        <BoyutSecimi boyut={formData.boyut} handleChange={handleChange}/>
         </BoyutSecenekleri>
         {errors.boyut && <ErrorMessage>{errorMessages.boyut}</ErrorMessage>}
         </Row>
@@ -421,12 +415,7 @@ function handleChange(event) {
         <Label htmlFor='hamur'>Hamur Sec</Label>
         </Titles>
         <HamurKalinligi>
-        <select name="hamur" id="hamur" onChange={handleChange}>
-        <option value="">Hamur Kalinligi</option>
-        <option value="ince" data-cy="input-hamur">Ince</option>
-        <option value="orta">Orta</option>
-        <option value="kalin">Kalin</option>
-        </select>
+        <HamurSecimi hamur={formData.hamur} handleChange={handleChange} />
         </HamurKalinligi>
         {errors.hamur && <ErrorMessage>{errorMessages.hamur}</ErrorMessage>}
         </Row>
@@ -438,168 +427,24 @@ function handleChange(event) {
        <Titles>Ek Malzemeler</Titles>
         <Description2>En Fazla 10 malzeme secebilirsiniz. 5TL</Description2>
         </EkMalzemelerMetin>
-        <EkMalzemeSecenekler>
-    
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Pepperoni"
-      checked={formData.ekMalzemeler.includes("Pepperoni")}
-      onChange={handleChange}
-      data-cy="checkbox-1"
-    />
-     Pepperoni
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Sosis"
-      checked={formData.ekMalzemeler.includes("Sosis")}
-      onChange={handleChange}
-      data-cy="checkbox-2"
-    />
-     Sosis
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Kanada Jambonu"
-      checked={formData.ekMalzemeler.includes("Kanada Jambonu")}
-      onChange={handleChange}
-      data-cy="checkbox-3"
-    />
-    Kanada Jambonu
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Tavuk Izgara"
-      checked={formData.ekMalzemeler.includes("Tavuk Izgara")}
-      onChange={handleChange}
-      data-cy="checkbox-4"
-    />
-    Tavuk Izgara
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Sogan"
-      checked={formData.ekMalzemeler.includes("Sogan")}
-      onChange={handleChange}
-    />
-    Sogan
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Domates"
-      checked={formData.ekMalzemeler.includes("Domates")}
-      onChange={handleChange}
-    />
-    Domates
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Misir"
-      checked={formData.ekMalzemeler.includes("Misir")}
-      onChange={handleChange}
-    />
-    Misir
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Sucuk"
-      checked={formData.ekMalzemeler.includes("Sucuk")}
-      onChange={handleChange}
-    />
-    Sucuk
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Jalepeno"
-      checked={formData.ekMalzemeler.includes("Jalepeno")}
-      onChange={handleChange}
-    />
-    Jalepeno
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Sarimsak"
-      checked={formData.ekMalzemeler.includes("Sarimsak")}
-      onChange={handleChange}
-    />
-    Sarimsak
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Biber"
-      checked={formData.ekMalzemeler.includes("Biber")}
-      onChange={handleChange}
-    />
-    Biber
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Sucuk2"
-      checked={formData.ekMalzemeler.includes("Sucuk2")}
-      onChange={handleChange}
-    />
-    Sucuk2
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Ananas"
-      checked={formData.ekMalzemeler.includes("Ananas")}
-      onChange={handleChange}
-    />
-    Ananas
-    </Label>
-    <Label>
-    <input
-      type="checkbox"
-      name="ekMalzemeler"
-      value="Kabak"
-      checked={formData.ekMalzemeler.includes("Kabak")}
-      onChange={handleChange}
-    />
-    Kabak
-    </Label>
-    </EkMalzemeSecenekler>
-    </EkMalzemeler>
-    {errors.ekMalzemeler && <ErrorMessage>{errorMessages.ekMalzemeler}</ErrorMessage>}
-    </Row>
+        <EkMalzemeSeceneklerStyle>
+          <EkMalzemeSecenekler ekMalzemeler={formData.ekMalzemeler} handleChange={handleChange} />
+          </EkMalzemeSeceneklerStyle>
+        </EkMalzemeler>
+        {errors.ekMalzemeler && <ErrorMessage>{errorMessages.ekMalzemeler}</ErrorMessage>}
+        </Row>
        
             <Row>
             <Titles>
               <Label htmlFor="isim">Isim:</Label></Titles>
-              <StyledInput type="text" id="isim" name="isim" rows="1" placeholder='Isminizi girin.' value={formData.isim} onChange={handleChange} data-cy="input-isim"/>
+              <IsimInput isim={formData.isim} handleChange={handleChange}/>
               {errors.isim && <ErrorMessage>{errorMessages.isim}</ErrorMessage>}
             </Row>
 
             <Row>
             <Titles>
               <Label htmlFor="siparisNotu">Siparis Notu:</Label></Titles>
-              <StyledInput type="text" id="siparisNotu" name="siparisNotu" rows="1" placeholder='Siparisine eklemek istedigin bir not var mi?' value={formData.siparisNotu} onChange={handleChange} data-cy="input-siparisNotu"/>
+              <SiparisNotuInput siparisNotu={formData.siparisNotu} handleChange={handleChange}/>
               {errors.siparisNotu && <ErrorMessage>{errorMessages.siparisNotu}</ErrorMessage>}
             </Row>
 

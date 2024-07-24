@@ -2,6 +2,7 @@
 
 describe("SANITY CHECK", ()=> {
   it("opens the app", () => {
+    cy.visit("http://localhost:5173/");
     cy.url.should("contain","http://localhost:5173/")
   })
 });

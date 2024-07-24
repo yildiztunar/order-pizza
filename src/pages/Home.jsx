@@ -53,85 +53,50 @@ color:black;
 background-color: #FDC913;
 padding: 0.5rem 1rem;
 border-radius: 2rem;
-width: 10%;
+width: 20%;
 text-align: center; 
 cursor: pointer;
 `;
 
 const Banner = styled.div`
 width: 100%;
-height: 500px; 
+height: 50vh; 
 `;
 
-const Secenekler = styled.div`
+const Options = styled.div`
 display:flex;
+flex-wrap: wrap;
 gap: 5rem;
 justify-content:center;
 padding: 2rem 0;
 `
 
-const Secenek = styled.div`
+const Option = styled.div`
 display:flex;
 text-align:center;
 gap:1rem;
 align-items:center;
 `
 
-const MiddleWrapper = styled.div`
-display:flex;
-`
-
-const OnerilerFull = styled.div`
-display: flex;
-gap:1rem;
-`
-const OnerilerLeft = styled.div`
-background-image: url(${OzelLezzetus});
-background-size:100%
-`
-const OnerilerRight = styled.div`
-display:flex;
-flex-direction: column;
-gap:1rem;
-`
-
-
 export default function Home() {
   return (
     <>
       <GlobalStyle />
       <BannerWrapper>
-        <TitleFirst>Teknolojik Yemekler</TitleFirst>
-        <TitleSecond>KOD ACIKTIRIR <br />PIZZA, DOYURUR</TitleSecond>
-        <Button to="/OrderPizza">ACIKTIM</Button>
+        <TitleFirst>Technological Meals</TitleFirst>
+        <TitleSecond>CODE IS UNAPPETIZING,  <br />PIZZA IS SATISFYING</TitleSecond>
+        <Button to="/OrderPizza">I'M HUNGRY!"</Button>
         <Banner />
       </BannerWrapper>
       
-      <Secenekler>
-        <Secenek><img src="../../Assets/mile2-aseets/icons/1.svg" alt="YENI! Kore"/>YENI! Kore</Secenek>
-        <Secenek><img src="../../Assets/mile2-aseets/icons/2.svg" alt="Pizza"/>Pizza</Secenek>
-        <Secenek><img src="../../Assets/mile2-aseets/icons/3.svg" alt="Burger"/>Burger</Secenek>
-        <Secenek><img src="../../Assets/mile2-aseets/icons/4.svg" alt="Kizartmalar"/>Kizartmalar</Secenek>
-        <Secenek><img src="../../Assets/mile2-aseets/icons/5.svg" alt="Fast Food"/>Fast Food</Secenek>
-        <Secenek><img src="../../Assets/mile2-aseets/icons/6.svg" alt="Gazli Icecek"/>Gazli Icecek</Secenek>
-      </Secenekler>
-
-      <MiddleWrapper>
-      <OnerilerFull>
-
-      <OnerilerLeft>
-      
-      </OnerilerLeft>
-
-      <OnerilerRight>
-
-      </OnerilerRight>
-
-      </OnerilerFull>
-
-
-
-      </MiddleWrapper>
+      <Options>
+        <Option><img src="../../Assets/mile2-aseets/icons/1.svg" alt="NEW! Korean"/>NEW! Korean</Option>
+        <Option><img src="../../Assets/mile2-aseets/icons/2.svg" alt="Pizza"/>Pizza</Option>
+        <Option><img src="../../Assets/mile2-aseets/icons/3.svg" alt="Burger"/>Burger</Option>
+        <Option><img src="../../Assets/mile2-aseets/icons/4.svg" alt="Kizartmalar"/>Fried </Option>
+        <Option><img src="../../Assets/mile2-aseets/icons/5.svg" alt="Fast Food"/>Fast Food</Option>
+        <Option><img src="../../Assets/mile2-aseets/icons/6.svg" alt="Gazli Icecek"/>Soft Drinks</Option>
+      </Options>
 
 
     </>

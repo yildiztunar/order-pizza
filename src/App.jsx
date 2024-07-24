@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import workintech from '/workintech.svg'
+
 import './App.css'
 import { Route } from 'react-router-dom/cjs/react-router-dom.min'
 import OrderPizza from './pages/OrderPizza'
@@ -14,7 +12,7 @@ function App() {
     <>
       <Route exact path='/'><Home/></Route>
       <Route exact path='/Home'><Home/></Route>
-      <Route data-cy="route-OrderPizza" exact path='/OrderPizza'><OrderPizza/></Route>
+      <Route exact path='/OrderPizza'><OrderPizza/></Route>
       <Route
           path="/success"
           render={(props) => <Success {...props.location.state} />}

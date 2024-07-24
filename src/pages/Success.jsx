@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -122,28 +121,28 @@ font-weight:lighter;
 
 
 export default function Success(props) {
-  const { boyut, hamur, ekMalzemeler, ekMalzemeToplam, adet } = props;
+  const { size, dough, addtIngredients, addtIngredientsTotal, adet } = props;
 
   return (
     <>
       <GlobalStyle />
       <PageWrapper>
-        <TitleFirst>Teknolojik Yemekler</TitleFirst>
-        <TitleSecond><LezzetinYolda>lezzetin yolda</LezzetinYolda>SIPARIS ALINDI</TitleSecond>
+        <TitleFirst>Technological Meals</TitleFirst>
+        <TitleSecond><LezzetinYolda>flavor on the way</LezzetinYolda>ORDER RECEIVED</TitleSecond>
         <Ayrac> </Ayrac>
 
-      <SecilenPizza>Position Absolute Aci Pizza</SecilenPizza>
+      <SecilenPizza>Position Absolute Spicy Pizza</SecilenPizza>
       <SecilenEkMalzemelerWrapper>
-          <SecilenEkMalzemeler>Boyut: {boyut}</SecilenEkMalzemeler>
-          <SecilenEkMalzemeler>Hamur: {hamur}</SecilenEkMalzemeler>
-          <SecilenEkMalzemeler>Ek Malzemeler: {ekMalzemeler.join(", ")}</SecilenEkMalzemeler>
+          <SecilenEkMalzemeler>Size: {size}</SecilenEkMalzemeler>
+          <SecilenEkMalzemeler>Dough: {dough}</SecilenEkMalzemeler>
+          <SecilenEkMalzemeler>Additional Ingredients: {addtIngredients.join(", ")}</SecilenEkMalzemeler>
         </SecilenEkMalzemelerWrapper>
 
       <SiparisToplami>
       <SiparisMetinler>
-            <Titles>Siparis Toplami</Titles>
-            <SecimlerWrapper><Secimler>Secimler</Secimler><SecimlerTL>{ekMalzemeToplam * adet} TL</SecimlerTL></SecimlerWrapper>
-            <ToplamWrapper><Toplam>Toplam</Toplam><ToplamTL>{(85.50 + ekMalzemeToplam) * adet} TL</ToplamTL></ToplamWrapper>
+            <Titles>Order Total</Titles>
+            <SecimlerWrapper><Secimler>Selections</Secimler><SecimlerTL>{addtIngredientsTotal * adet} TL</SecimlerTL></SecimlerWrapper>
+            <ToplamWrapper><Toplam>Total</Toplam><ToplamTL>{(85.50 + addtIngredientsTotal) * adet} TL</ToplamTL></ToplamWrapper>
           </SiparisMetinler>
       </SiparisToplami>
 

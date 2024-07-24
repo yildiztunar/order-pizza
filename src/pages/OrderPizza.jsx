@@ -3,11 +3,11 @@ import { Form, Label, Input, Button, Row } from 'reactstrap';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import EkMalzemeSecenekler from '../components/EkMalzemeSecenekler';
-import HamurSecimi from '../components/HamurSecimi';
-import BoyutSecimi from '../components/BoyutSecimi';
-import IsimInput from '../components/IsimInput';
-import SiparisNotuInput from '../components/SiparisNotuInput';
+import AddsIngredients from '../components/AddsIngredients';
+import SizeSelection from '../components/SizeSelection';
+import NameInput from '../components/NameInput';
+import NoteInput from '../components/NoteInput';
+import DoughSelection from '../components/DoughSelection';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -82,42 +82,42 @@ const Description2 = styled.p`
 text-align:left;
 color:#5F5F5F;
 `
-const Detaylar = styled.p`
+const Details = styled.p`
 display:flex;
 justify-content:space-between;
 padding: 1rem 0;
 `
 
-const Ucret = styled.p`
+const Price = styled.p`
 font-weight: bold;
 `
-const PuanBegeni = styled.div`
+const Score = styled.div`
 display:flex;
 align-items:flex-end;
 gap:6rem;
 `
 
-const Puan = styled.p`
+const Score1 = styled.p`
 color: #5F5F5F;
 `
 
-const Begeni = styled.p`
+const Score2 = styled.p`
 color: #5F5F5F;
 `
 
-const BoyutHamurSec = styled.div`
+const SelectSizeDough = styled.div`
 display:flex;
 width:100%;
 justify-content: space-between;
 padding: 1rem 0;
 `
 
-const BoyutSecenekleri =styled.div`
+const SizeOptions =styled.div`
 padding-top:1rem;
 text-align:left;
 `
 
-const HamurKalinligi = styled.div`
+const DoughThickness = styled.div`
 padding-top:1rem;
 padding-right:8rem;
 `
@@ -126,25 +126,18 @@ const Titles = styled.p`
 text-align:left;
 font-weight: bold;
 `
-const EkMalzemeler = styled.div`
+const AdditionalIng = styled.div`
 display:flex;
 flex-direction:column;
 padding: 1rem 0 1rem 0;
 `
 
-const EkMalzemelerMetin = styled.div`
+const AdditionalIngText = styled.div`
 display:flex;
 flex-direction:column;
 padding: 1rem 0;
 `
 
-const EkMalzemeSeceneklerStyle = styled.div`
-display:grid;
-grid-template-columns:repeat(3, 1fr);
-text-align:left;
-color: #292929;
-font-weight:bold;
-`
 
 const StyledInput =styled(Input)`
 color:#292929;
@@ -155,28 +148,28 @@ border: #5F5F5F solid 0.05rem;
 border-radius: 0.5rem;
 `
 
-const Ayrac = styled.div`
+const Separator = styled.div`
 border-bottom: #5F5F5F solid 0.05rem;
 margin: 2rem 0 ;
 `
 
-const Ozet = styled.div`
+const Summary = styled.div`
 display:flex;
 justify-content:space-between;
 `
 
-const EkleCikar = styled.div`
+const AddSubtract = styled.div`
 display:flex;
 `
 
-const ButtonAzalt = styled(Button)`
+const ButtonDecrease = styled(Button)`
 width:2.5rem;
 height:3rem;
 background-color:#FDC913;
 text-align:center;
 align-content:center;
 `
-const Rakam = styled.p`
+const Num = styled.p`
 text-align:center;
 align-content:center;
 width:2.5rem;
@@ -185,50 +178,50 @@ border-top:#5F5F5F solid 0.05rem;
 border-bottom:#5F5F5F solid 0.05rem;
 border-radius: 0.2rem;
 `
-const ButtonArtir = styled(Button)`
+const ButtonIncrease = styled(Button)`
 width:2.5rem;
 height:3rem;
 background-color:#FDC913;
 text-align:center;
 align-content:center;
 `
-const SiparisToplami = styled.div`
+const OrderTotal = styled.div`
 border:#5F5F5F solid 0.05rem;
 border-radius: 0.5rem;
 width:70%;
 `
-const SiparisMetinler = styled.div`
+const OrderTexts = styled.div`
 padding:3rem 3rem;
 `
-const SecimlerWrapper = styled.p`
+const SelectionsWrapper = styled.p`
 display:flex;
 justify-content:space-between;
 `
-const Secimler = styled.p`
+const Selections = styled.p`
 padding-top:1rem;
 text-align:left;
 color: #292929;
 `
-const SecimlerTL = styled.p`
+const SelectionsTL = styled.p`
 padding-top:1rem;
 text-align:left;
 `
-const ToplamWrapper = styled.p`
+const TotalWrapper = styled.p`
 display:flex;
 justify-content:space-between;
 `
-const Toplam = styled.p`
+const Total = styled.p`
 text-align:left;
 color:#CE2829;
 font-weight:bold;
 `
-const ToplamTL = styled.p`
+const TotalTL = styled.p`
 text-align:left;
 color:#CE2829;
 font-weight:bold;
 `
 
-const SiparisVer = styled(Button)`
+const PlaceOrder = styled(Button)`
 background-color:#FDC913;
 width:100%;
 border-radius: 0.2rem;
@@ -240,19 +233,19 @@ color:red;
 `
 
 const initialFormData = {
-isim:"",
-siparisNotu:"",
-boyut:false,
-hamur:"",
-ekMalzemeler:[]
+username:"",
+orderNote:"",
+size:false,
+dough:"",
+addtIngredients:[]
 };
 
 const errorMessages ={
-isim:"En az 3 karakterden olusan bir isim giriniz.",
-siparisNotu:"Siparis notu giriniz.",
-boyut:"Pizza boyutu seciniz.",
-hamur:"Hamur kalinligi seciniz.",
-ekMalzemeler:"En az 4 ve en fazla 10 adet secim yapiniz.",
+  username: "Please enter a name consisting of at least 3 characters.",
+  orderNote: "Please enter an order note.",
+  size: "Please select a pizza size.",
+  dough: "Please select a dough thickness.",
+  addtIngredients: "Please choose at least 4 and at most 10 options.",
 }
 
 
@@ -261,22 +254,22 @@ export default function OrderPizza() {
 const [formData, setFormData] = useState(initialFormData);
 const [errors, setErrors] = useState(
 {
-isim:false,
-siparisNotu:false,
-boyut:false,
-hamur:false,
-ekMalzemeler:false,
+username:false,
+orderNote:false,
+size:false,
+dough:false,
+addtIngredients:false,
 }
 );
 
 const [isValid, setIsValid] = useState(false);
-const [ekMalzemeToplam, setEkMalzemeToplam] = useState(0);
-const [adet, setAdet] = useState(1);
+const [addtIngredientsTotal, setaddtIngredientsTotal] = useState(0);
+const [unit, setUnit] = useState(1);
 const history = useHistory();
 
 useEffect(()=> {
-    const {isim, siparisNotu, boyut, hamur, ekMalzemeler} = formData;
-    if(validateIsim(isim) && validateSiparisNotu(siparisNotu) && validateBoyut(boyut) && validateHamur(hamur) && validateEkMalzemeler(ekMalzemeler)){
+    const {username, orderNote, size, dough, addtIngredients} = formData;
+    if(validateName(username) && validateNote(orderNote) && validateSize(size) && validateDough(dough) && validateAddtIngredients(addtIngredients)){
         setIsValid(true)
     } else {
         setIsValid(false)
@@ -295,45 +288,45 @@ function handleSubmit(event) {
         history.push({
           pathname: "/success",
           state: {
-            boyut: formData.boyut,
-            hamur: formData.hamur,
-            ekMalzemeler: formData.ekMalzemeler,
-            ekMalzemeToplam: ekMalzemeToplam,
-            adet: adet
+            size: formData.size,
+            dough: formData.dough,
+            addtIngredients: formData.addtIngredients,
+            addtIngredientsTotal: addtIngredientsTotal,
+            unit: unit
         }
         });
     });
 }
 
-function validateIsim(isim) {
-    return isim.length >= 3;
+function validateName(username) {
+    return username.length >= 3;
 }
 
-function validateSiparisNotu(siparisNotu) {
-    return siparisNotu.length >= 3;
+function validateNote(orderNote) {
+    return orderNote.length >= 3;
 }
 
-function validateBoyut(boyut) {
-    return boyut !== '';
+function validateSize(size) {
+    return size !== '';
 }
 
-function validateHamur(hamur) {
-    return hamur !== '';
+function validateDough(dough) {
+    return dough !== '';
 }
 
-function validateEkMalzemeler(ekMalzemeler) {
-    const selectedCount = ekMalzemeler.length;
+function validateAddtIngredients(addtIngredients) {
+    const selectedCount = addtIngredients.length;
     return selectedCount >= 4 && selectedCount <= 10;
 }
 
 
 function handleArtir() {
-    setAdet(adet + 1);
+    setUnit(unit + 1);
 }
 
 function handleAzalt() {
-    if (adet > 1) {
-        setAdet(adet - 1);
+    if (unit > 1) {
+        setUnit(unit - 1);
     }
 }
 
@@ -342,37 +335,37 @@ function handleChange(event) {
     const { name, value, type, checked } = event.target;
 
     if (type === "checkbox") {
-        const updatedEkMalzemeler = checked
-          ? [...formData.ekMalzemeler, value]
-          : formData.ekMalzemeler.filter(item => item !== value);
+        const updatedAddtIngredients = checked
+          ? [...formData.addtIngredients, value]
+          : formData.addtIngredients.filter(item => item !== value);
       
-        setFormData({ ...formData, ekMalzemeler: updatedEkMalzemeler });
+        setFormData({ ...formData, addtIngredients: updatedAddtIngredients });
       
-        const isEkMalzemelerValid = validateEkMalzemeler(updatedEkMalzemeler);
-        setErrors({ ...errors, ekMalzemeler: !isEkMalzemelerValid });
+        const isAddtIngredientsValid = validateAddtIngredients(updatedAddtIngredients);
+        setErrors({ ...errors, addtIngredients: !isAddtIngredientsValid });
       
-        setEkMalzemeToplam(updatedEkMalzemeler.length * 5); 
+        setaddtIngredientsTotal(updatedAddtIngredients.length * 5); 
       } else {
         setFormData({ ...formData, [name]: value });
 
-    if (name === "isim") {
-            setErrors({ ...errors, isim: !validateIsim(value) });
-        } else if (name === "siparisNotu") {
-            setErrors({ ...errors, siparisNotu: !validateSiparisNotu(value) });
-        } else if (name === "boyut") {
-            setErrors({ ...errors, boyut: !validateBoyut(value) });
-        } else if (name === "hamur") {
-            setErrors({ ...errors, hamur: !validateHamur(value) });
+    if (name === "username") {
+            setErrors({ ...errors, username: !validateName(value) });
+        } else if (name === "orderNote") {
+            setErrors({ ...errors, orderNote: !validateNote(value) });
+        } else if (name === "size") {
+            setErrors({ ...errors, size: !validateSize(value) });
+        } else if (name === "dough") {
+            setErrors({ ...errors, dough: !validateDough(value) });
         }
     }
 
-    const { isim, siparisNotu, boyut, hamur, ekMalzemeler } = formData;
+    const { username, orderNote, size, dough, addtIngredients } = formData;
     setIsValid(
-        validateIsim(isim) &&
-        validateSiparisNotu(siparisNotu) &&
-        validateBoyut(boyut) &&
-        validateHamur(hamur) &&
-        validateEkMalzemeler(ekMalzemeler)
+        validateName(username) &&
+        validateNote(orderNote) &&
+        validateSize(size) &&
+        validateDough(dough) &&
+        validateAddtIngredients(addtIngredients)
     );
 }
 
@@ -382,92 +375,92 @@ function handleChange(event) {
       <GlobalStyle />
       <PageWrapper>
         <Banner>
-          <Header>Teknolojik Yemekler</Header>
-          <MenuItems>Anasayfa - Siparis Olustur</MenuItems>
+          <Header>Technological Meals</Header>
+          <MenuItems>Home - Place Order</MenuItems>
         </Banner>
         <MainPage>
 
-        <Titles>Position Absolute Aci Pizza</Titles>
-        <Detaylar>
-            <Ucret>85.50 TL</Ucret>
-            <PuanBegeni>
-            <Puan>4.9</Puan>
-            <Begeni>(200)</Begeni>
-            </PuanBegeni>
-            </Detaylar>
-        <Description>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</Description>
+        <Titles>Position: Absolute Spicy Pizza</Titles>
+        <Details>
+            <Price>85.50 TL</Price>
+            <Score>
+            <Score1>4.9</Score1>
+            <Score2>(200)</Score2>
+            </Score>
+            </Details>
+        <Description>As a Frontend Dev, if you're still using position: absolute, this very spicy pizza is perfect for you. Pizza is a savory Italian dish consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients, which is then baked at a high temperature, traditionally in a wood-fired oven. A small pizza is sometimes called a pizzetta.</Description>
           
         <Form onSubmit={handleSubmit}>
 
-        <BoyutHamurSec>
+        <SelectSizeDough>
         <Row>
         <Titles>
-        <Label htmlFor='boyut'>Boyut Sec</Label><br></br>
+        <Label htmlFor='size'>Select Size</Label><br></br>
         </Titles>
-        <BoyutSecenekleri>
-        <BoyutSecimi boyut={formData.boyut} handleChange={handleChange}/>
-        </BoyutSecenekleri>
-        {errors.boyut && <ErrorMessage>{errorMessages.boyut}</ErrorMessage>}
+        <SizeOptions>
+        <SizeSelection size={formData.size} handleChange={handleChange}/>
+        </SizeOptions>
+        {errors.size && <ErrorMessage>{errorMessages.size}</ErrorMessage>}
         </Row>
 
         <Row>
         <Titles>
-        <Label htmlFor='hamur'>Hamur Sec</Label>
+        <Label htmlFor='dough'>Select Dough</Label>
         </Titles>
-        <HamurKalinligi>
-        <HamurSecimi hamur={formData.hamur} handleChange={handleChange} />
-        </HamurKalinligi>
-        {errors.hamur && <ErrorMessage>{errorMessages.hamur}</ErrorMessage>}
+        <DoughThickness>
+        <DoughSelection dough={formData.dough} handleChange={handleChange} />
+        </DoughThickness>
+        {errors.dough && <ErrorMessage>{errorMessages.dough}</ErrorMessage>}
         </Row>
-        </BoyutHamurSec>
+        </SelectSizeDough>
 
        <Row>
-       <EkMalzemeler>
-       <EkMalzemelerMetin>
-       <Titles>Ek Malzemeler</Titles>
-        <Description2>En Fazla 10 malzeme secebilirsiniz. 5TL</Description2>
-        </EkMalzemelerMetin>
-        <EkMalzemeSeceneklerStyle>
-          <EkMalzemeSecenekler ekMalzemeler={formData.ekMalzemeler} handleChange={handleChange} />
-          </EkMalzemeSeceneklerStyle>
-        </EkMalzemeler>
-        {errors.ekMalzemeler && <ErrorMessage>{errorMessages.ekMalzemeler}</ErrorMessage>}
+       <AdditionalIng>
+       <AdditionalIngText>
+       <Titles>Additional Ingredients</Titles>
+        <Description2>You can select up to 10 ingredients. 5TL each.</Description2>
+        </AdditionalIngText>
+        
+          <AddsIngredients addtIngredients={formData.addtIngredients} handleChange={handleChange} />
+          
+        </AdditionalIng>
+        {errors.addtIngredients && <ErrorMessage>{errorMessages.addtIngredients}</ErrorMessage>}
         </Row>
        
             <Row>
             <Titles>
-              <Label htmlFor="isim">Isim:</Label></Titles>
-              <IsimInput isim={formData.isim} handleChange={handleChange}/>
-              {errors.isim && <ErrorMessage>{errorMessages.isim}</ErrorMessage>}
+              <Label htmlFor="username">Name:</Label></Titles>
+              <NameInput username={formData.username} handleChange={handleChange}/>
+              {errors.username && <ErrorMessage>{errorMessages.username}</ErrorMessage>}
             </Row>
 
             <Row>
             <Titles>
-              <Label htmlFor="siparisNotu">Siparis Notu:</Label></Titles>
-              <SiparisNotuInput siparisNotu={formData.siparisNotu} handleChange={handleChange}/>
-              {errors.siparisNotu && <ErrorMessage>{errorMessages.siparisNotu}</ErrorMessage>}
+              <Label htmlFor="orderNote">Order Note:</Label></Titles>
+              <NoteInput orderNote={formData.orderNote} handleChange={handleChange}/>
+              {errors.orderNote && <ErrorMessage>{errorMessages.orderNote}</ErrorMessage>}
             </Row>
 
-          <Ayrac></Ayrac>
+          <Separator></Separator>
 
-    <Ozet>
+    <Summary>
 
-    <EkleCikar>
-    <ButtonAzalt onClick={handleAzalt}>-</ButtonAzalt>
-    <Rakam>{adet}</Rakam>
-    <ButtonArtir onClick={handleArtir}>+</ButtonArtir>
-    </EkleCikar>
+    <AddSubtract>
+    <ButtonDecrease onClick={handleAzalt}>-</ButtonDecrease>
+    <Num>{unit}</Num>
+    <ButtonIncrease onClick={handleArtir}>+</ButtonIncrease>
+    </AddSubtract>
     
-    <SiparisToplami>
-        <SiparisMetinler>
-        <Titles>Siparis Toplami</Titles>
-        <SecimlerWrapper><Secimler>Secimler</Secimler><SecimlerTL>{ekMalzemeToplam*adet} TL</SecimlerTL></SecimlerWrapper>
-        <ToplamWrapper><Toplam>Toplam</Toplam><ToplamTL>{(85.50 + ekMalzemeToplam) * adet} TL</ToplamTL></ToplamWrapper>
-        </SiparisMetinler>
-        <SiparisVer type="submit" disabled={!isValid} data-cy="submit-orderPizza-form">SIPARIS VER</SiparisVer>
-    </SiparisToplami>
+    <OrderTotal>
+        <OrderTexts>
+        <Titles>Order Total</Titles>
+        <SelectionsWrapper><Selections>Selections</Selections><SelectionsTL>{addtIngredientsTotal*unit} TL</SelectionsTL></SelectionsWrapper>
+        <TotalWrapper><Total>Total</Total><TotalTL>{(85.50 + addtIngredientsTotal) * unit} TL</TotalTL></TotalWrapper>
+        </OrderTexts>
+        <PlaceOrder type="submit" disabled={!isValid} data-cy="submit-orderPizza-form">PLACE ORDER</PlaceOrder>
+    </OrderTotal>
 
-    </Ozet>
+    </Summary>
 
     </Form>
 

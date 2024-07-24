@@ -31,14 +31,14 @@ describe("SUCCESS", ()=> {
     cy.get('[data-cy="route-OrderPizza"]').as('OrderPizzaLink');
     cy.get("@OrderPizzaLink").click();
     //act
-    cy.get('[data-cy="input-boyut"]').first().check();
-    cy.get('[data-cy="input-hamur"]').first().check();
+    cy.get('[data-cy="input-size"]').first().check();
+    cy.get('[data-cy="input-dough"]').first().check();
     cy.get('[data-cy="checkbox-1"]').check();
     cy.get('[data-cy="checkbox-2"]').check();
     cy.get('[data-cy="checkbox-3"]').check();
     cy.get('[data-cy="checkbox-4"]').check();
-    cy.get('[data-cy="input-isim"]').type("yildiz");
-    cy.get('[data-cy="input-siparisNotu"]').type("siparis notum");
+    cy.get('[data-cy="input-username"]').type("yildiz");
+    cy.get('[data-cy="input-orderNote"]').type("siparis notum");
     cy.get('[data-cy="submit-orderPizza-form"]').click();
     //assert
     cy.url().should("contain", "/success");
@@ -47,15 +47,15 @@ describe("SUCCESS", ()=> {
 
 
 describe("FAIL", ()=> {
-  it.only("throws 5 errors if boyut and hamur is not checked, min 4 max 10 ek malzeme are not checked, min 3 characters isim and siparisNotu are not written", ()=> {
+  it.only("throws 5 errors if size and dough is not checked, min 4 max 10 ek malzeme are not checked, min 3 characters isim and orderNote are not written", ()=> {
     //arrange
     cy.get('[data-cy="route-OrderPizza"]').as('OrderPizzaLink');
     cy.get("@OrderPizzaLink").click();
     //act
-    cy.get('[data-cy="input-boyut"]').first().check();
-    cy.get('[data-cy="input-boyut"]').first().uncheck();
-    cy.get('[data-cy="input-hamur"]').first().check();
-    cy.get('[data-cy="input-hamur"]').first().uncheck();
+    cy.get('[data-cy="input-size"]').first().check();
+    cy.get('[data-cy="input-size"]').first().uncheck();
+    cy.get('[data-cy="input-dough"]').first().check();
+    cy.get('[data-cy="input-dough"]').first().uncheck();
     cy.get('[data-cy="checkbox-1"]').check();
     cy.get('[data-cy="checkbox-1"]').uncheck();
     cy.get('[data-cy="checkbox-2"]').check();
@@ -64,8 +64,8 @@ describe("FAIL", ()=> {
     cy.get('[data-cy="checkbox-3"]').uncheck();
     cy.get('[data-cy="checkbox-4"]').check();
     cy.get('[data-cy="checkbox-4"]').uncheck();
-    cy.get('[data-cy="input-isim"]').type("yil");
-    cy.get('[data-cy="input-siparisNotu"]').type("y");
+    cy.get('[data-cy="input-username"]').type("yil");
+    cy.get('[data-cy="input-orderNote"]').type("y");
     cy.get('[data-cy="submit-orderPizza-form"]').click();
     //assert
     cy.get('[data-cy="errors"]').should("have.length",5)

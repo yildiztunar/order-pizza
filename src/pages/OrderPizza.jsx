@@ -121,10 +121,31 @@ const DoughThickness = styled.div`
 padding-top:1rem;
 padding-right:8rem;
 `
+const NameNoteWrapper = styled.div`
+padding: 1rem 0 1rem 0;
+`
 
 const Titles = styled.p`
+display: flex;
+flex-direction: column;
 text-align:left;
 font-weight: bold;
+
+label {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  input {
+    margin-right: 10px;
+    padding: 10px;
+    border:#5F5F5F solid 0.01rem;
+    border-radius: 0.3rem;
+    width:50%;
+  }
+
 `
 const AdditionalIng = styled.div`
 display:flex;
@@ -154,6 +175,7 @@ margin: 2rem 0 ;
 `
 
 const Summary = styled.div`
+padding: 1rem 0 1rem 0;
 display:flex;
 justify-content:space-between;
 `
@@ -376,7 +398,7 @@ function handleChange(event) {
       <PageWrapper>
         <Banner>
           <Header>Technological Meals</Header>
-          <MenuItems>Home - Place Order</MenuItems>
+          <MenuItems>Place Order</MenuItems>
         </Banner>
         <MainPage>
 
@@ -426,21 +448,23 @@ function handleChange(event) {
         </AdditionalIng>
         {errors.addtIngredients && <ErrorMessage>{errorMessages.addtIngredients}</ErrorMessage>}
         </Row>
-       
+       <NameNoteWrapper>
             <Row>
             <Titles>
-              <Label htmlFor="username">Name:</Label></Titles>
+              <Label htmlFor="username">Name:</Label>
               <NameInput username={formData.username} handleChange={handleChange}/>
               {errors.username && <ErrorMessage>{errorMessages.username}</ErrorMessage>}
+              </Titles>
             </Row>
 
             <Row>
             <Titles>
-              <Label htmlFor="orderNote">Order Note:</Label></Titles>
+              <Label htmlFor="orderNote">Order Note:</Label>
               <NoteInput orderNote={formData.orderNote} handleChange={handleChange}/>
               {errors.orderNote && <ErrorMessage>{errorMessages.orderNote}</ErrorMessage>}
+              </Titles>
             </Row>
-
+            </NameNoteWrapper>
           <Separator></Separator>
 
     <Summary>

@@ -35,13 +35,13 @@ const TitleFirst = styled.div`
   font-weight:bold;
 `;
 
-const LezzetinYolda = styled.div`
+const Ontheway = styled.div`
 color: #FDC913;
 font-size: 2rem;
 font-family: "Satisfy", cursive;
 `
 const TitleSecond = styled.div`
-  font-size: 6rem;
+  font-size: 5rem;
   color: white;
   text-align: center;
   display:flex;
@@ -49,46 +49,47 @@ const TitleSecond = styled.div`
   align-items:center;
   font-family: "Roboto Condensed", sans-serif;
 `
-const Ayrac = styled.div`
+const Separator = styled.div`
 border-bottom: white solid 0.05rem;
 margin: 0 ;
 width: 50%;
 `
-const SiparisToplami = styled.div`
+const OrderTotal = styled.div`
 border:#FFFFFF solid 0.05rem;
 border-radius: 0.5rem;
 width:25%;
+margin: 1rem;
 `
-const SiparisMetinler = styled.div`
+const OrderTexts = styled.div`
 padding:3rem 3rem;
 `
-const SecimlerWrapper = styled.p`
+const SelectionsWrapper = styled.p`
 display:flex;
 justify-content:space-between;
 `
-const Secimler = styled.p`
+const Selections = styled.p`
 padding-top:1rem;
 text-align:left;
 color: #FFFFFF;
 font-size: 1.5rem;
 `
-const SecimlerTL = styled.p`
+const SelectionsTL = styled.p`
 padding-top:1rem;
 text-align:left;
 color:#FFFFFF;
 font-size: 1.5rem;
 `
-const ToplamWrapper = styled.p`
+const TotalWrapper = styled.p`
 display:flex;
 justify-content:space-between;
 font-size: 1.5rem;
 `
-const Toplam = styled.p`
+const Total = styled.p`
 text-align:left;
 color:#FFFFFF;
 font-size: 1.5rem;
 `
-const ToplamTL = styled.p`
+const TotalTL = styled.p`
 text-align:left;
 color:#FFFFFF;
 font-size: 1.5rem;
@@ -99,19 +100,19 @@ color: #FFFFFF;
 font-size: 1.5rem;
 `
 
-const SecilenPizza = styled.p`
+const SelectedPizza = styled.p`
 text-align:left;
 color: #FFFFFF;
 font-size: 1.5rem;
 `
-const SecilenEkMalzemelerWrapper=styled.p`
+const SelectedAddtWrapper=styled.p`
 display: flex;
 flex-direction:column;
 gap:0.5rem;
 width:15%;
 `
 
-const SecilenEkMalzemeler = styled.p`
+const SelectedAddt = styled.p`
 text-align:left;
 color: #FFFFFF;
 font-size: 1rem;
@@ -121,30 +122,30 @@ font-weight:lighter;
 
 
 export default function Success(props) {
-  const { size, dough, addtIngredients, addtIngredientsTotal, adet } = props;
+  const { size, dough, addtIngredients, addtIngredientsTotal, unit } = props;
 
   return (
     <>
       <GlobalStyle />
       <PageWrapper>
         <TitleFirst>Technological Meals</TitleFirst>
-        <TitleSecond><LezzetinYolda>flavor on the way</LezzetinYolda>ORDER RECEIVED</TitleSecond>
-        <Ayrac> </Ayrac>
+        <TitleSecond><Ontheway>flavor on the way</Ontheway>ORDER RECEIVED</TitleSecond>
+        <Separator> </Separator>
 
-      <SecilenPizza>Position Absolute Spicy Pizza</SecilenPizza>
-      <SecilenEkMalzemelerWrapper>
-          <SecilenEkMalzemeler>Size: {size}</SecilenEkMalzemeler>
-          <SecilenEkMalzemeler>Dough: {dough}</SecilenEkMalzemeler>
-          <SecilenEkMalzemeler>Additional Ingredients: {addtIngredients.join(", ")}</SecilenEkMalzemeler>
-        </SecilenEkMalzemelerWrapper>
+      <SelectedPizza>Position Absolute Spicy Pizza</SelectedPizza>
+      <SelectedAddtWrapper>
+          <SelectedAddt>Size: {size}</SelectedAddt>
+          <SelectedAddt>Dough: {dough}</SelectedAddt>
+          <SelectedAddt>Additional Ingredients: {addtIngredients.join(", ")}</SelectedAddt>
+        </SelectedAddtWrapper>
 
-      <SiparisToplami>
-      <SiparisMetinler>
+      <OrderTotal>
+      <OrderTexts>
             <Titles>Order Total</Titles>
-            <SecimlerWrapper><Secimler>Selections</Secimler><SecimlerTL>{addtIngredientsTotal * adet} TL</SecimlerTL></SecimlerWrapper>
-            <ToplamWrapper><Toplam>Total</Toplam><ToplamTL>{(85.50 + addtIngredientsTotal) * adet} TL</ToplamTL></ToplamWrapper>
-          </SiparisMetinler>
-      </SiparisToplami>
+            <SelectionsWrapper><Selections>Selections:</Selections><SelectionsTL>{addtIngredientsTotal * unit} TL</SelectionsTL></SelectionsWrapper>
+            <TotalWrapper><Total>Total:</Total><TotalTL>{(85.50 + addtIngredientsTotal) * unit} TL</TotalTL></TotalWrapper>
+          </OrderTexts>
+      </OrderTotal>
 
       </PageWrapper>
     </>

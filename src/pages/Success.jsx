@@ -143,7 +143,7 @@ export default function Success(props) {
       <OrderTexts>
             <Titles>Order Total</Titles>
             <SelectionsWrapper><Selections>Selections:</Selections><SelectionsEuro>{addtIngredientsTotal * unit} Euro</SelectionsEuro></SelectionsWrapper>
-            <TotalWrapper><Total>Total:</Total><TotalEuro>{(85.50 + addtIngredientsTotal) * unit} Euro</TotalEuro></TotalWrapper>
+            <TotalWrapper><Total>Total:</Total><TotalEuro>{(15.50 + addtIngredientsTotal) * unit} Euro</TotalEuro></TotalWrapper>
           </OrderTexts>
       </OrderTotal>
 

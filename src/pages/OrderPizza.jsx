@@ -424,7 +424,7 @@ function handleChange(event) {
         <SelectSizeDough>
         <Row>
         <Titles>
-        <Label htmlFor='size'>Select Size</Label><br></br>
+        <Label htmlFor='size'>Select Size</Label>
         </Titles>
         <SizeOptions>
         <SizeSelection size={formData.size} handleChange={handleChange}/>

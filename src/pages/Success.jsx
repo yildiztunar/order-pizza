@@ -73,7 +73,7 @@ text-align:left;
 color: #FFFFFF;
 font-size: 1.5rem;
 `
-const SelectionsTL = styled.p`
+const SelectionsEuro = styled.p`
 padding-top:1rem;
 text-align:left;
 color:#FFFFFF;
@@ -89,7 +89,7 @@ text-align:left;
 color:#FFFFFF;
 font-size: 1.5rem;
 `
-const TotalTL = styled.p`
+const TotalEuro = styled.p`
 text-align:left;
 color:#FFFFFF;
 font-size: 1.5rem;
@@ -142,8 +142,8 @@ export default function Success(props) {
       <OrderTotal>
       <OrderTexts>
             <Titles>Order Total</Titles>
-            <SelectionsWrapper><Selections>Selections:</Selections><SelectionsTL>{addtIngredientsTotal * unit} TL</SelectionsTL></SelectionsWrapper>
-            <TotalWrapper><Total>Total:</Total><TotalTL>{(85.50 + addtIngredientsTotal) * unit} TL</TotalTL></TotalWrapper>
+            <SelectionsWrapper><Selections>Selections:</Selections><SelectionsEuro>{addtIngredientsTotal * unit} Euro</SelectionsEuro></SelectionsWrapper>
+            <TotalWrapper><Total>Total:</Total><TotalEuro>{(85.50 + addtIngredientsTotal) * unit} Euro</TotalEuro></TotalWrapper>
           </OrderTexts>
       </OrderTotal>
 

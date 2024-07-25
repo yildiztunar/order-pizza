@@ -231,7 +231,7 @@ padding-top:1rem;
 text-align:left;
 color: #292929;
 `
-const SelectionsTL = styled.p`
+const SelectionsEuro = styled.p`
 padding-top:1rem;
 text-align:left;
 `
@@ -244,13 +244,13 @@ text-align:left;
 color:#CE2829;
 font-weight:bold;
 `
-const TotalTL = styled.p`
+const TotalEuro = styled.p`
 text-align:left;
 color:#CE2829;
 font-weight:bold;
 `
 
-const PlaceOrder = styled(Button)`
+const PlaceOrder = styled.button`
 background-color:#FDC913;
 width:100%;
 border-radius: 0.2rem;
@@ -264,8 +264,8 @@ color:red;
 const initialFormData = {
 username:"",
 orderNote:"",
-size:false,
-dough:"",
+size:"small",
+dough:"thin",
 addtIngredients:[]
 };
 
@@ -373,7 +373,7 @@ function handleChange(event) {
         const isAddtIngredientsValid = validateAddtIngredients(updatedAddtIngredients);
         setErrors({ ...errors, addtIngredients: !isAddtIngredientsValid });
       
-        setaddtIngredientsTotal(updatedAddtIngredients.length * 5); 
+        setaddtIngredientsTotal(updatedAddtIngredients.length * 1.5); 
       } else {
         setFormData({ ...formData, [name]: value });
 
@@ -411,7 +411,7 @@ function handleChange(event) {
 
         <Titles>Position: Absolute Spicy Pizza</Titles>
         <Details>
-            <Price>85.50 TL</Price>
+            <Price>15.50 Euro</Price>
             <Score>
             <Score1>4.9</Score1>
             <Score2>(200)</Score2>
@@ -447,7 +447,7 @@ function handleChange(event) {
        <AdditionalIng>
        <AdditionalIngText>
        <Titles>Additional Ingredients</Titles>
-        <Description2>You can select up to 10 ingredients. 5TL each.</Description2>
+        <Description2>You can select up to 10 ingredients. 1.5 Euro each.</Description2>
         </AdditionalIngText>
         
           <AddsIngredients addtIngredients={formData.addtIngredients} handleChange={handleChange} />
@@ -485,8 +485,8 @@ function handleChange(event) {
     <OrderTotal>
         <OrderTexts>
         <Titles>Order Total</Titles>
-        <SelectionsWrapper><Selections>Selections</Selections><SelectionsTL>{addtIngredientsTotal*unit} TL</SelectionsTL></SelectionsWrapper>
-        <TotalWrapper><Total>Total</Total><TotalTL>{(85.50 + addtIngredientsTotal) * unit} TL</TotalTL></TotalWrapper>
+        <SelectionsWrapper><Selections>Selections</Selections><SelectionsEuro>{addtIngredientsTotal*unit} Euro</SelectionsEuro></SelectionsWrapper>
+        <TotalWrapper><Total>Total</Total><TotalEuro>{(15.50 + addtIngredientsTotal) * unit} Euro</TotalEuro></TotalWrapper>
         </OrderTexts>
         <PlaceOrder type="submit" disabled={!isValid} data-cy="submit-orderPizza-form">PLACE ORDER</PlaceOrder>
     </OrderTotal>

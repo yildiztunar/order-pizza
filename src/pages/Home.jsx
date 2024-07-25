@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import BannerImage from '../../Assets/mile1-assets/home-banner.png';
-import OzelLezzetus from "../../Assets/mile2-aseets/cta/kart-1.png";
+import BannerImage from '../assets/home-banner.png';
+import OzelLezzetus from "../assets/cta/kart-1.png";
 import { Link } from 'react-router-dom';
 
 const GlobalStyle = createGlobalStyle`
@@ -86,12 +86,12 @@ export default function Home() {
       </BannerWrapper>
       
       <Options>
-        <Option><img src="../../Assets/mile2-aseets/icons/1.svg" alt="NEW! Korean"/>NEW! Korean</Option>
-        <Option><img src="../../Assets/mile2-aseets/icons/2.svg" alt="Pizza"/>Pizza</Option>
-        <Option><img src="../../Assets/mile2-aseets/icons/3.svg" alt="Burger"/>Burger</Option>
-        <Option><img src="../../Assets/mile2-aseets/icons/4.svg" alt="Kizartmalar"/>Fried </Option>
-        <Option><img src="../../Assets/mile2-aseets/icons/5.svg" alt="Fast Food"/>Fast Food</Option>
-        <Option><img src="../../Assets/mile2-aseets/icons/6.svg" alt="Gazli Icecek"/>Soft Drinks</Option>
+        <Option><img src="../assets/icons/1.svg" alt="NEW! Korean"/>NEW! Korean</Option>
+        <Option><img src="../assets/icons/2.svg" alt="Pizza"/>Pizza</Option>
+        <Option><img src="../assets/icons/3.svg" alt="Burger"/>Burger</Option>
+        <Option><img src="../assets/icons/4.svg" alt="Kizartmalar"/>Fried </Option>
+        <Option><img src="../assets/icons/5.svg" alt="Fast Food"/>Fast Food</Option>
+        <Option><img src="../assets/icons/6.svg" alt="Gazli Icecek"/>Soft Drinks</Option>
       </Options>
 
 

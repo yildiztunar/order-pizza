@@ -81,7 +81,7 @@ export default function Home() {
       <BannerWrapper>
         <H1>Technological Meals</H1>
         <H2>CODE IS UNAPPETIZING,  <br />PIZZA IS SATISFYING</H2>
-        <Button to="/OrderPizza">I'M HUNGRY!"</Button>
+        <Button data-cy="orderPizza" to="/OrderPizza">I'M HUNGRY!"</Button>
         
       </BannerWrapper>
       

@@ -16,8 +16,8 @@ function DoughSelection({ dough, handleChange }) {
     <div>
       <DoughStyle>
       <label htmlFor="dough">Dough Thickness:</label>
-      <select name="dough" id="dough" value={dough} onChange={handleChange}>
-        <option value="thin" data-cy="input-dough">Thin</option>
+      <select name="dough" id="dough" value={dough} onChange={handleChange} data-cy="input-dough">
+        <option value="thin" >Thin</option>
         <option value="medium">Medium</option>
         <option value="thick">Thick</option>
       </select>

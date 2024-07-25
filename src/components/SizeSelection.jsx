@@ -4,8 +4,8 @@ function SizeSelection({ size, handleChange }) {
   return (
     <div>
       <div>
-        <input type="radio" id="small" name="size" value="small" checked={size === 'small'} onChange={handleChange} />
-        <label htmlFor="small" data-cy="input-size"> Small</label>
+        <input type="radio" id="small" name="size" value="small" checked={size === 'small'} onChange={handleChange} data-cy="input-size"/>
+        <label htmlFor="small" > Small</label>
       </div>
       <div>
         <input type="radio" id="medium" name="size" value="medium" checked={size === 'medium'} onChange={handleChange} />

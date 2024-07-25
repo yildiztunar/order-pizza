@@ -18,10 +18,18 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 100vh;
+`;
+
+const SectionFirst = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
-  min-height: 100vh; 
-  width: 100%;
-`
+`;
 
 const TitleFirst = styled.div`
   font-size: 2rem;
@@ -29,8 +37,7 @@ const TitleFirst = styled.div`
   text-align: center;
   display:flex;
   flex: 1;
-  padding-top:4.8rem;
-  padding-bottom: 2rem;
+  padding-top:4rem;
   font-family: "Barlow", sans-serif;
   font-weight:bold;
 `;
@@ -52,54 +59,37 @@ const TitleSecond = styled.div`
 const Separator = styled.div`
 border-bottom: white solid 0.05rem;
 margin: 0 ;
-width: 50%;
+width: 70%;
 `
 const OrderTotal = styled.div`
 border:#FFFFFF solid 0.05rem;
 border-radius: 0.5rem;
-width:25%;
 margin: 1rem;
+padding:1rem 2rem;
 `
-const OrderTexts = styled.div`
-padding:3rem 3rem;
-`
-const SelectionsWrapper = styled.p`
-display:flex;
-justify-content:space-between;
-`
-const Selections = styled.p`
-padding-top:1rem;
-text-align:left;
-color: #FFFFFF;
-font-size: 1.5rem;
-`
-const SelectionsEuro = styled.p`
-padding-top:1rem;
+
+const TitleThird = styled.p`
 text-align:left;
 color:#FFFFFF;
-font-size: 1.5rem;
+font-size: 1.2rem;
 `
 const TotalWrapper = styled.p`
 display:flex;
 justify-content:space-between;
-font-size: 1.5rem;
-`
-const Total = styled.p`
-text-align:left;
-color:#FFFFFF;
-font-size: 1.5rem;
+align-items: center;
 `
 const TotalEuro = styled.p`
 text-align:left;
 color:#FFFFFF;
-font-size: 1.5rem;
+font-size: 1.2rem;
+padding-left: 6rem;
 `
 const Titles = styled.p`
 text-align:left;
 color: #FFFFFF;
 font-size: 1.5rem;
+padding: 1rem 0;
 `
-
 const SelectedPizza = styled.p`
 text-align:left;
 color: #FFFFFF;
@@ -107,18 +97,17 @@ font-size: 1.5rem;
 `
 const SelectedAddtWrapper=styled.p`
 display: flex;
-flex-direction:column;
+flex-direction:row;
 gap:0.5rem;
-width:15%;
-`
-
-const SelectedAddt = styled.p`
-text-align:left;
+width:70%;
+justify-content: center;
 color: #FFFFFF;
-font-size: 1rem;
 font-weight:lighter;
 `
 
+const SelectedAddt = styled.p`
+font-weight:bold;
+`
 
 
 export default function Success(props) {
@@ -128,23 +117,23 @@ export default function Success(props) {
     <>
       <GlobalStyle />
       <PageWrapper>
+        <SectionFirst>
         <TitleFirst>Technological Meals</TitleFirst>
         <TitleSecond><Ontheway>flavor on the way</Ontheway>ORDER RECEIVED</TitleSecond>
+        </SectionFirst>
         <Separator> </Separator>
-
+        <SectionFirst>
       <SelectedPizza>Position Absolute Spicy Pizza</SelectedPizza>
       <SelectedAddtWrapper>
-          <SelectedAddt>Size: {size}</SelectedAddt>
-          <SelectedAddt>Dough: {dough}</SelectedAddt>
-          <SelectedAddt>Additional Ingredients: {addtIngredients.join(", ")}</SelectedAddt>
+          <SelectedAddt>Size: </SelectedAddt>{size}
+          <SelectedAddt>Dough: </SelectedAddt>{dough}
+          <SelectedAddt>Additional Ingredients: </SelectedAddt>{addtIngredients.join(", ")}
         </SelectedAddtWrapper>
-
+        </SectionFirst>
       <OrderTotal>
-      <OrderTexts>
             <Titles>Order Total</Titles>
-            <SelectionsWrapper><Selections>Selections:</Selections><SelectionsEuro>{addtIngredientsTotal * unit} Euro</SelectionsEuro></SelectionsWrapper>
-            <TotalWrapper><Total>Total:</Total><TotalEuro>{(15.50 + addtIngredientsTotal) * unit} Euro</TotalEuro></TotalWrapper>
-          </OrderTexts>
+            <TotalWrapper><TitleThird>Selections: </TitleThird><TotalEuro>{addtIngredientsTotal * unit} Euro</TotalEuro></TotalWrapper>
+            <TotalWrapper><TitleThird>Total: </TitleThird><TotalEuro>{(15.50 + addtIngredientsTotal) * unit} Euro</TotalEuro></TotalWrapper>
       </OrderTotal>
 
       </PageWrapper>

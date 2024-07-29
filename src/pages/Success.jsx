@@ -16,12 +16,15 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 3rem;
+height: 100vh;
+@media (max-width: 480px) {
+gap:1rem;
+}
 `;
 const SectionFirst = styled.div`
 display: flex;
@@ -108,8 +111,8 @@ export default function Success(props) {
         </SectionFirst>
       <OrderTotal>
             <h2>Order Total</h2>
-            <TotalWrapper><h2>Selections: </h2><h3>{addtIngredientsTotal * unit} Euro</h3></TotalWrapper>
-            <TotalWrapper><h2>Total: </h2><h3>{(15.50 + addtIngredientsTotal) * unit} Euro</h3></TotalWrapper>
+            <TotalWrapper><h2>Selections: </h2><h3>{addtIngredientsTotal * unit} €</h3></TotalWrapper>
+            <TotalWrapper><h2>Total: </h2><h3>{(15.50 + addtIngredientsTotal) * unit} €</h3></TotalWrapper>
       </OrderTotal>
 
       </PageWrapper>

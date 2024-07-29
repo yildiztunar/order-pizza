@@ -64,6 +64,10 @@ h3 {
     color:white;
     font-size:1.3rem;
   }
+
+@media (max-width: 480px) {
+  width:25rem;
+}
 `;
 const Card23 = styled.div`
 display:flex;
@@ -86,6 +90,9 @@ h2 {
     color:white;
     font-size:2rem;
   };
+@media (max-width: 480px) {
+  width:25rem;
+}
 `;
 const Card3 = styled.div`
 background-image: url(${card3});
@@ -103,6 +110,9 @@ h2 {
     font-weight:bold;
     font-size:2rem;
   };
+@media (max-width: 480px) {
+  width:25rem;
+}
 `;
 const Button = styled(Link)`
 color:black;

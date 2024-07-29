@@ -11,9 +11,11 @@ select {
   font-family: "Barlow", sans-serif;
   text-align: left;
   font-size:0.9rem;
+  color:black;
 }
 option {
   text-align: left;
+  color:black;
 }`;
 
 function DoughSelection({ dough, handleChange }) {

@@ -161,6 +161,9 @@ padding: 1rem 0 1rem 0;
 display:flex;
 gap: 1rem;
 justify-content:space-between;
+@media (max-width: 480px) {
+flex-direction: column;
+}
 `;
 const AddSubtract = styled.div`
 display:flex;

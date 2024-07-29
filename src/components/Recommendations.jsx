@@ -32,10 +32,6 @@ flex-direction: column;
 gap: 1rem;
 justify-content: center;
 align-items: center;
-width:30rem;
-@media (max-width: 480px) {
-  width:25rem;
-}
 `;
 const Cards = styled.div`
 display:flex;

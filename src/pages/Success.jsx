@@ -35,7 +35,8 @@ h1{
 color: white;
 font-size:3em;}
 h2 {
-color:white;}
+color:white;
+font-size:2em}
 @media (max-width: 480px) {
 h1{
 font-size:2em;}
@@ -62,15 +63,20 @@ h2 {
 color:white;
 	font-weight: 500;
   padding: 0 2rem;
+  font-size: 1.5rem;
 }
 h3 {
 color:white;
 	font-weight: 300;
   padding: 0 2rem;
+  font-size:1.5rem;
 }
 @media (max-width: 480px) {
 h2{
-font-size:2em;}
+font-size:1rem;}
+h3{
+font-size:1rem;}
+padding: 1rem;
 }
 `;
 const TotalWrapper = styled.p`

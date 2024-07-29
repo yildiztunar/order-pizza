@@ -51,7 +51,7 @@ background-size: cover;
 background-position: center;
 width:30rem;
 height: 31rem;
-gap: 1rem;
+gap: 2rem;
 border-radius: 1rem;
 h1 {
     font-weight:bold;

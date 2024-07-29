@@ -40,7 +40,16 @@ font-size: 4rem;
 color: white;
 text-align: center;
 font-family: "Roboto Condensed", sans-serif;
-font-weight:lighter;}
+font-weight:lighter;
+}
+@media (max-width: 480px) {
+h1{
+font-size:2em;
+}
+h2{
+font-size: 2rem;
+}
+}
 `;
 const Button = styled(Link)`
 color:black;
@@ -62,7 +71,6 @@ color: #FDC913;
 font-size: 2rem;
 font-family: "Satisfy", cursive;
 `;
-
 export default function Banner() {
   return (
     <>

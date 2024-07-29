@@ -163,7 +163,6 @@ gap: 1rem;
 justify-content:space-between;
 @media (max-width: 480px) {
 flex-direction: column;
-width: 17rem;
 }`;
 const AddSubtract = styled.div`
 display:flex;
@@ -196,6 +195,9 @@ border: 0.1rem solid #ccc;
 border-radius: 0.3rem;
 width:25rem;
 background-color: #FAF7F2;
+@media (max-width: 480px) {
+width: 17rem;
+}`;
 `;
 const OrderTexts = styled.div`
 padding:1rem 1rem;

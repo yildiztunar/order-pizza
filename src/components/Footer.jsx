@@ -45,6 +45,9 @@ padding: 2rem;
 margin: 0 auto;
 h4 {
 font-weight: lighter
+}
+@media (max-width: 480px) {
+flex-direction: column;
 }`;
 const Section1 = styled.div`
 display: flex;

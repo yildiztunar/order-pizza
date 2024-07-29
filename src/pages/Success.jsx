@@ -26,7 +26,7 @@ h2{
 font-size:1.5rem;}
 }
 @media (max-width: 480px) {
-gap:1rem;
+gap:0.5rem;
 h2{
 font-size:1rem;}
 }
@@ -35,7 +35,7 @@ const SectionFirst = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 3rem;
+gap: 1rem;
 h1{
 color: white;
 font-size:3em;}
@@ -43,7 +43,7 @@ h2 {
 color:white;
 font-size:2em}
 @media (max-width: 480px) {
-gap: 1rem;
+gap: 0.5rem;
 h1{
 font-size:2em;}
 }
@@ -61,7 +61,6 @@ width: 70%;
 const OrderTotal = styled.div`
 border:#FFFFFF solid 0.05rem;
 border-radius: 0.5rem;
-margin: 1rem;
 text-align:left;
 padding: 2rem;
 h2 {
@@ -81,7 +80,7 @@ h2{
 font-size:1rem;}
 h3{
 font-size:1rem;}
-padding: 1rem;
+padding: 0.5rem;
 }
 `;
 const TotalWrapper = styled.p`

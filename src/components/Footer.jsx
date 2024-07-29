@@ -86,7 +86,7 @@ const Insta = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 gap: 0.5rem;
-width:30vh;
+width:25vh;
 `;
 const Instagram = styled.div`
 `;

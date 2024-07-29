@@ -22,8 +22,13 @@ align-items: center;
 justify-content: center;
 gap: 3rem;
 height: 100vh;
+h2{
+font-size:1.5rem;}
+}
 @media (max-width: 480px) {
 gap:1rem;
+h2{
+font-size:1rem;}
 }
 `;
 const SectionFirst = styled.div`

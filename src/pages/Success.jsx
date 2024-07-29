@@ -28,7 +28,7 @@ font-size:1.5rem;}
 @media (max-width: 480px) {
 gap:0.5rem;
 h2{
-font-size:1rem;}
+font-size:0.5rem;}
 }
 `;
 const SectionFirst = styled.div`

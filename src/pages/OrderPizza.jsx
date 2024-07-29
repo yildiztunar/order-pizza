@@ -126,6 +126,12 @@ input {
   background-color: #FAF7F2;
   padding-left: 0.5rem;
   font-size: 0.9rem;
+}
+@media (max-width: 480px) {
+input {
+  width: 15rem;
+  font-size: 0.6rem;
+}
 }`;
 const AdditionalIng = styled.div`
 display:flex;

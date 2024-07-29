@@ -163,8 +163,8 @@ gap: 1rem;
 justify-content:space-between;
 @media (max-width: 480px) {
 flex-direction: column;
-}
-`;
+width: 17rem;
+}`;
 const AddSubtract = styled.div`
 display:flex;
 `;

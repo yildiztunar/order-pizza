@@ -62,7 +62,6 @@ const OrderTotal = styled.div`
 border:#FFFFFF solid 0.05rem;
 border-radius: 0.5rem;
 margin: 1rem;
-padding:1rem 2rem;
 text-align:left;
 padding: 2rem;
 h2 {

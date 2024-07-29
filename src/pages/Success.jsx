@@ -33,6 +33,10 @@ color: white;
 font-size:3em;}
 h2 {
 color:white;}
+@media (max-width: 480px) {
+h1{
+font-size:2em;}
+}
 `;
 const Ontheway = styled.div`
 color: #FDC913;
@@ -60,6 +64,10 @@ h3 {
 color:white;
 	font-weight: 300;
   padding: 0 2rem;
+}
+@media (max-width: 480px) {
+h2{
+font-size:2em;}
 }
 `;
 const TotalWrapper = styled.p`

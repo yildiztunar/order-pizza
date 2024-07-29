@@ -27,25 +27,29 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+display: flex;
+flex-direction: column;
+align-items: center;
 `;
 const Banner = styled.div`
-  background-color: #CE2829;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100%;
-  padding: 2rem;
-  align-items: center;
-  margin: 0; 
-  position: relative;
-  h1{
-  color: white;
-  font-size:3em;}
-  h2 {
-  color:white;}
+background-color: #CE2829;
+display: flex;
+flex-direction: column;
+gap: 2rem;
+width: 100%;
+padding: 2rem;
+align-items: center;
+margin: 0; 
+position: relative;
+h1{
+color: white;
+font-size:3em;}
+h2 {
+color:white;}
+@media (max-width: 480px) {
+h1{
+font-size:2em;}
+}
 `;
 const Meal = styled.div`
 width: 100%;

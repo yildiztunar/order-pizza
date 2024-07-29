@@ -32,6 +32,7 @@ flex-direction: column;
 gap: 1rem;
 justify-content: center;
 align-items: center;
+margin: 0 1rem;
 `;
 const Cards = styled.div`
 display:flex;

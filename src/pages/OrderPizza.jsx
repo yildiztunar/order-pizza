@@ -129,8 +129,8 @@ input {
 }
 @media (max-width: 480px) {
 input {
-  width: 15rem;
-  font-size: 0.6rem;
+  width: 17rem;
+  font-size: 0.7rem;
 }
 }`;
 const AdditionalIng = styled.div`
@@ -378,7 +378,7 @@ function handleChange(event) {
             <img src={pizza}/>
         <h3>Position: Absolute Spicy Pizza</h3>
         <Details>
-            <h3>15.50 Euro</h3>
+            <h3>15.50 €</h3>
             <Score>
             <h4>4.9</h4>
             <h4>(200)</h4>
@@ -419,7 +419,7 @@ function handleChange(event) {
        <AdditionalIng>
        <AdditionalIngText>
        <Titles>Additional Ingredients</Titles>
-        <Description2>You can select up to 10 ingredients. 1.5 Euro each.</Description2>
+        <Description2>You can select up to 10 ingredients. 1.5 € each.</Description2>
         </AdditionalIngText>
         
           <AddsIngredients addtIngredients={formData.addtIngredients} handleChange={handleChange} />
@@ -457,8 +457,8 @@ function handleChange(event) {
     <OrderTotal>
         <OrderTexts>
         <Titles>Order Total</Titles>
-        <SelectionsWrapper><Selections>Selections</Selections><SelectionsEuro>{addtIngredientsTotal*unit} Euro</SelectionsEuro></SelectionsWrapper>
-        <TotalWrapper><Total>Total</Total><TotalEuro>{(15.50 + addtIngredientsTotal) * unit} Euro</TotalEuro></TotalWrapper>
+        <SelectionsWrapper><Selections>Selections</Selections><SelectionsEuro>{addtIngredientsTotal*unit} €</SelectionsEuro></SelectionsWrapper>
+        <TotalWrapper><Total>Total</Total><TotalEuro>{(15.50 + addtIngredientsTotal) * unit} €</TotalEuro></TotalWrapper>
         </OrderTexts>
         <PlaceOrder type="submit" disabled={!isValid} data-cy="submit-orderPizza-form">PLACE ORDER</PlaceOrder>
     </OrderTotal>

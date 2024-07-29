@@ -48,9 +48,9 @@ const Description = styled.div`
 `;
 export default function Meals() {
   const mealoptions = [
-    { image: food1, name: 'Terminal Pizza', point: '4.9', orderNum: '(200)', price: '12.50 Euro' },
-    { image: food2, name: 'Position Absolute Spicy Pizza', point: '4.7', orderNum: '(120)', price: '15.50 Euro' },
-    { image: food3, name: 'useEffect Chicken Burger', point: '4.5', orderNum: '(147)', price: '14.50 Euro' }
+    { image: food1, name: 'Terminal Pizza', point: '4.9', orderNum: '(200)', price: '12.50 €' },
+    { image: food2, name: 'Position Absolute Spicy Pizza', point: '4.7', orderNum: '(120)', price: '15.50 €' },
+    { image: food3, name: 'useEffect Chicken Burger', point: '4.5', orderNum: '(147)', price: '14.50 €' }
   ];
 
   return (

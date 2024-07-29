@@ -23,7 +23,7 @@ justify-content: center;
 gap: 3rem;
 height: 100vh;
 @media (max-width: 480px) {
-gap:0.5rem;
+gap:1rem;
 }
 `;
 const SectionFirst = styled.div`

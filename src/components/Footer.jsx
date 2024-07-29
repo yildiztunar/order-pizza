@@ -84,7 +84,7 @@ display: grid;
 grid-template-columns: repeat(3, 1fr);
 gap: 0.5rem;
 @media (max-width: 480px) {
-grid-template-columns: 2fr;
+grid-template-columns: repeat(2, 1fr);
 }`;
 const Instagram = styled.div`
 `;

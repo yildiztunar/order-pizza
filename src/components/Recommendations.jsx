@@ -156,7 +156,7 @@ export default function Recommendations() {
         <Card23>
             <Card2>
                 <h2>Hackathlon</h2><h2>Burger Menu</h2> 
-                <Button>PLACE ORDER</Button>
+                <Button to="/OrderPizza">PLACE ORDER</Button>
             </Card2>
             <Card3>
                 <h2>Super fast</h2><h2>courier service</h2>

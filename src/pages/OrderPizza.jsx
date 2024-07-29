@@ -198,7 +198,6 @@ background-color: #FAF7F2;
 @media (max-width: 480px) {
 width: 17rem;
 }`;
-`;
 const OrderTexts = styled.div`
 padding:1rem 1rem;
 `;

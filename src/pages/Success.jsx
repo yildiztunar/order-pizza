@@ -22,13 +22,8 @@ align-items: center;
 justify-content: center;
 gap: 3rem;
 height: 100vh;
-h2{
-font-size:1.5rem;}
-}
 @media (max-width: 480px) {
 gap:0.5rem;
-h2{
-font-size:0.5rem;}
 }
 `;
 const SectionFirst = styled.div`
@@ -38,16 +33,18 @@ align-items: center;
 gap: 1rem;
 h1{
 color: white;
-font-size:3em;}
+font-size:3rem;};
 h2 {
 color:white;
-font-size:2em}
+font-size:2rem}
 @media (max-width: 480px) {
 gap: 0.5rem;
-h1{
-font-size:2em;}
+h1 {
+font-size: 2rem;
 }
-`;
+h2 {
+font-size: 1rem;
+}}`;
 const Ontheway = styled.div`
 color: #FDC913;
 font-size: 2rem;
@@ -112,7 +109,7 @@ export default function Success(props) {
         </SectionFirst>
         <Separator> </Separator>
         <SectionFirst>
-      <h2>Position Absolute Spicy Pizza</h2>
+        <h2>Position Absolute Spicy Pizza</h2>
       <SelectedAddtWrapper>
           <h3>Size: </h3>{size}
           <h3>Dough: </h3>{dough}

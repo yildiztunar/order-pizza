@@ -43,6 +43,7 @@ h2 {
 color:white;
 font-size:2em}
 @media (max-width: 480px) {
+gap: 1rem;
 h1{
 font-size:2em;}
 }

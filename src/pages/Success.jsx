@@ -12,103 +12,71 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     width: 100%;
     background-color: #CE2829;
+    font-family: "Barlow", sans-serif;
   }
-`
+`;
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 3rem;
   height: 100vh;
 `;
-
 const SectionFirst = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 3rem;
+h1{
+color: white;
+font-size:3em;}
+h2 {
+color:white;}
 `;
-
-const TitleFirst = styled.div`
-  font-size: 2rem;
-  color: white;
-  text-align: center;
-  display:flex;
-  flex: 1;
-  padding-top:4rem;
-  font-family: "Barlow", sans-serif;
-  font-weight:bold;
-`;
-
 const Ontheway = styled.div`
 color: #FDC913;
 font-size: 2rem;
 font-family: "Satisfy", cursive;
-`
-const TitleSecond = styled.div`
-  font-size: 5rem;
-  color: white;
-  text-align: center;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  font-family: "Roboto Condensed", sans-serif;
-`
+`;
 const Separator = styled.div`
 border-bottom: white solid 0.05rem;
 margin: 0 ;
 width: 70%;
-`
+`;
 const OrderTotal = styled.div`
 border:#FFFFFF solid 0.05rem;
 border-radius: 0.5rem;
 margin: 1rem;
 padding:1rem 2rem;
-`
-
-const TitleThird = styled.p`
 text-align:left;
-color:#FFFFFF;
-font-size: 1.2rem;
-`
+padding: 2rem;
+h2 {
+color:white;
+	font-weight: 500;
+  padding: 0 2rem;
+}
+h3 {
+color:white;
+	font-weight: 300;
+  padding: 0 2rem;
+}
+`;
 const TotalWrapper = styled.p`
 display:flex;
 justify-content:space-between;
 align-items: center;
-`
-const TotalEuro = styled.p`
-text-align:left;
-color:#FFFFFF;
-font-size: 1.2rem;
-padding-left: 6rem;
-`
-const Titles = styled.p`
-text-align:left;
-color: #FFFFFF;
-font-size: 1.5rem;
-padding: 1rem 0;
-`
-const SelectedPizza = styled.p`
-text-align:left;
-color: #FFFFFF;
-font-size: 1.5rem;
-`
+`;
 const SelectedAddtWrapper=styled.p`
 display: flex;
-flex-direction:row;
+flex-direction:column;
 gap:0.5rem;
 width:70%;
-justify-content: center;
+align-items:flex-start;
 color: #FFFFFF;
 font-weight:lighter;
-`
-
-const SelectedAddt = styled.p`
-font-weight:bold;
-`
-
+text-align:left;
+`;
 
 export default function Success(props) {
   const { size, dough, addtIngredients, addtIngredientsTotal, unit } = props;
@@ -118,22 +86,22 @@ export default function Success(props) {
       <GlobalStyle />
       <PageWrapper>
         <SectionFirst>
-        <TitleFirst>Technological Meals</TitleFirst>
-        <TitleSecond><Ontheway>flavor on the way</Ontheway>ORDER RECEIVED</TitleSecond>
+        <h1>Technological Meals</h1>
+        <h1><Ontheway>flavor on the way</Ontheway>ORDER RECEIVED</h1>
         </SectionFirst>
         <Separator> </Separator>
         <SectionFirst>
-      <SelectedPizza>Position Absolute Spicy Pizza</SelectedPizza>
+      <h2>Position Absolute Spicy Pizza</h2>
       <SelectedAddtWrapper>
-          <SelectedAddt>Size: </SelectedAddt>{size}
-          <SelectedAddt>Dough: </SelectedAddt>{dough}
-          <SelectedAddt>Additional Ingredients: </SelectedAddt>{addtIngredients.join(", ")}
+          <h3>Size: </h3>{size}
+          <h3>Dough: </h3>{dough}
+          <h3>Additional Ingredients: </h3>{addtIngredients.join(", ")}
         </SelectedAddtWrapper>
         </SectionFirst>
       <OrderTotal>
-            <Titles>Order Total</Titles>
-            <TotalWrapper><TitleThird>Selections: </TitleThird><TotalEuro>{addtIngredientsTotal * unit} Euro</TotalEuro></TotalWrapper>
-            <TotalWrapper><TitleThird>Total: </TitleThird><TotalEuro>{(15.50 + addtIngredientsTotal) * unit} Euro</TotalEuro></TotalWrapper>
+            <h2>Order Total</h2>
+            <TotalWrapper><h2>Selections: </h2><h3>{addtIngredientsTotal * unit} Euro</h3></TotalWrapper>
+            <TotalWrapper><h2>Total: </h2><h3>{(15.50 + addtIngredientsTotal) * unit} Euro</h3></TotalWrapper>
       </OrderTotal>
 
       </PageWrapper>

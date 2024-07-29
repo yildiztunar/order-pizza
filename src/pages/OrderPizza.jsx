@@ -8,6 +8,8 @@ import SizeSelection from '../components/SizeSelection';
 import NameInput from '../components/NameInput';
 import NoteInput from '../components/NoteInput';
 import DoughSelection from '../components/DoughSelection';
+import Footer from '../components/Footer';
+import pizza from '../assets/pictures/form-banner.png';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -21,115 +23,90 @@ const GlobalStyle = createGlobalStyle`
     margin: auto;
     padding: 0;
     width: 100%;
+    font-family: "Barlow", sans-serif;
   }
 `;
-
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  min-height: 100vh;
-  width: 100%;
-  font-family: "Barlow", sans-serif;
 `;
-
 const Banner = styled.div`
   background-color: #CE2829;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 99vw;
+  width: 100%;
   padding: 2rem;
   align-items: center;
   margin: 0; 
   position: relative;
-`;
-
-const Header = styled.div`
-  font-family: "Barlow", sans-serif;
-  font-weight:bold;
-  width: 100%;
-  font-size: 2rem;
+  h1{
   color: white;
-  text-align: center;
+  font-size:3em;}
+  h2 {
+  color:white;}
 `;
-
-const MenuItems = styled.p`
-  font-size: 1rem;
-  color: white;
-  text-align: center;
-
-`;
-
-const MainPage = styled.div`
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 70%;
-  padding: 1rem;
-  
-`;
-
-const Description = styled.p`
+const Meal = styled.div`
+width: 100%;
+background-color: #FAF7F2;
+display:flex;
+justify-content:center;
+align-items: center;
+h3 {
 text-align:left;
-color:#5F5F5F;
-padding: 1rem 0;
-`
-
+}
+p {
+text-align:left;
+}
+`;
+const MealContent = styled.div`
+width:70%;
+padding: 0 0 2rem 0;
+img {
+ max-width: 100%;
+height: auto;
+}
+`;
+const MainPage = styled.div`
+background-color: white;
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+width: 70%;
+padding: 1rem;
+`;
 const Description2 = styled.p`
 text-align:left;
 color:#5F5F5F;
-`
+`;
 const Details = styled.p`
 display:flex;
 justify-content:space-between;
 padding: 1rem 0;
-`
-
-const Price = styled.p`
-font-weight: bold;
-`
+`;
 const Score = styled.div`
 display:flex;
 align-items:flex-end;
 gap:6rem;
-`
-
-const Score1 = styled.p`
-color: #5F5F5F;
-`
-
-const Score2 = styled.p`
-color: #5F5F5F;
-`
-
+`;
 const SelectSizeDough = styled.div`
 display:flex;
 flex-wrap: wrap;
-gap: 2rem;
+gap: 5rem;
 width:100%;
 justify-content: space-between;
-padding: 1rem 0;
-`
-
+`;
 const SizeOptions =styled.div`
-padding-top:1rem;
 text-align:left;
-`
-
+`;
 const DoughThickness = styled.div`
-padding-top:1rem;
 padding-right: 15rem;
 text-align:left;
-
-
-`
+`;
 const NameNoteWrapper = styled.div`
 padding: 1rem 0 1rem 0;
-`
-
+`;
 const Titles = styled.p`
 display: flex;
 flex-direction: column;
@@ -137,34 +114,29 @@ text-align:left;
 font-weight: bold;
 
 label {
-    margin: 5px 0;
-    display: flex;
-    align-items: center;
-    
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
   }
-
-  input {
-    margin-right: 10px;
-    padding: 10px;
-    border:#5F5F5F solid 0.01rem;
-    border-radius: 0.3rem;
-    width: 19rem;
-  }
-
-`
+input {
+  width: 20rem;
+  height: 2.5rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.3rem;
+  background-color: #FAF7F2;
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+}`;
 const AdditionalIng = styled.div`
 display:flex;
 flex-direction:column;
 padding: 1rem 0 1rem 0;
-`
-
+`;
 const AdditionalIngText = styled.div`
 display:flex;
 flex-direction:column;
 padding: 1rem 0;
-`
-
-
+`;
 const StyledInput =styled(Input)`
 color:#292929;
 width:100%;
@@ -172,94 +144,89 @@ padding:1rem;
 margin: 0.5rem 0;
 border: #5F5F5F solid 0.05rem;
 border-radius: 0.5rem;
-`
-
+`;
 const Separator = styled.div`
-border-bottom: #5F5F5F solid 0.05rem;
+border-bottom: #ccc solid 0.05rem;
 margin: 2rem 0 ;
 min-width:18rem;
-`
-
+`;
 const Summary = styled.div`
 padding: 1rem 0 1rem 0;
 display:flex;
 gap: 1rem;
 justify-content:space-between;
-`
-
+`;
 const AddSubtract = styled.div`
 display:flex;
-`
-
+`;
 const ButtonDecrease = styled(Button)`
 width:2.5rem;
 height:3rem;
 background-color:#FDC913;
 text-align:center;
 align-content:center;
-`
+`;
 const Num = styled.p`
 text-align:center;
 align-content:center;
 width:2.5rem;
 height:3rem;
-border-top:#5F5F5F solid 0.05rem;
-border-bottom:#5F5F5F solid 0.05rem;
+border-top:#ccc solid 0.05rem;
+border-bottom:#ccc solid 0.05rem;
 border-radius: 0.2rem;
-`
+`;
 const ButtonIncrease = styled(Button)`
 width:2.5rem;
 height:3rem;
 background-color:#FDC913;
 text-align:center;
 align-content:center;
-`
+`;
 const OrderTotal = styled.div`
-border:#5F5F5F solid 0.05rem;
-border-radius: 0.5rem;
+border: 0.1rem solid #ccc;
+border-radius: 0.3rem;
 width:25rem;
-`
+background-color: #FAF7F2;
+`;
 const OrderTexts = styled.div`
 padding:1rem 1rem;
-`
+`;
 const SelectionsWrapper = styled.p`
 display:flex;
 justify-content:space-between;
-`
+`;
 const Selections = styled.p`
 padding-top:1rem;
 text-align:left;
 color: #292929;
-`
+`;
 const SelectionsEuro = styled.p`
 padding-top:1rem;
 text-align:left;
-`
+`;
 const TotalWrapper = styled.p`
 display:flex;
 justify-content:space-between;
-`
+`;
 const Total = styled.p`
 text-align:left;
 color:#CE2829;
 font-weight:bold;
-`
+`;
 const TotalEuro = styled.p`
 text-align:left;
 color:#CE2829;
 font-weight:bold;
-`
-
+`;
 const PlaceOrder = styled.button`
 background-color:#FDC913;
 width:100%;
 border-radius: 0.2rem;
 font-weight:bold;
-`
-
+`;
 const ErrorMessage=styled.p`
 color:red;
-`
+`;
 
 const initialFormData = {
 username:"",
@@ -267,7 +234,7 @@ orderNote:"",
 size:"small",
 dough:"thin",
 addtIngredients:[]
-};
+}
 
 const errorMessages ={
   username: "Please enter a name consisting of at least 3 characters.",
@@ -276,7 +243,6 @@ const errorMessages ={
   dough: "Please select a dough thickness.",
   addtIngredients: "Please choose at least 4 and at most 10 options.",
 }
-
 
 export default function OrderPizza() {
 
@@ -288,8 +254,7 @@ orderNote:false,
 size:false,
 dough:false,
 addtIngredients:false,
-}
-);
+});
 
 const [isValid, setIsValid] = useState(false);
 const [addtIngredientsTotal, setaddtIngredientsTotal] = useState(0);
@@ -304,7 +269,6 @@ useEffect(()=> {
         setIsValid(false)
     }
 }, [formData])
-
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -348,7 +312,6 @@ function validateAddtIngredients(addtIngredients) {
     return selectedCount >= 4 && selectedCount <= 10;
 }
 
-
 function handleArtir() {
     setUnit(unit + 1);
 }
@@ -358,7 +321,6 @@ function handleAzalt() {
         setUnit(unit - 1);
     }
 }
-
 
 function handleChange(event) {
     const { name, value, type, checked } = event.target;
@@ -398,27 +360,31 @@ function handleChange(event) {
     );
 }
 
-
   return (
     <>
       <GlobalStyle />
       <PageWrapper>
         <Banner>
-          <Header>Technological Meals</Header>
-          <MenuItems>Place Order</MenuItems>
+          <h1>Technological Meals</h1>
         </Banner>
+        <Meal>
+          <MealContent>
+            <img src={pizza}/>
+        <h3>Position: Absolute Spicy Pizza</h3>
+        <Details>
+            <h3>15.50 Euro</h3>
+            <Score>
+            <h4>4.9</h4>
+            <h4>(200)</h4>
+            </Score>
+          </Details>
+        <p>
+          As a Frontend Dev, if you're still using position: absolute, this very spicy pizza is perfect for you. Pizza is a savory Italian dish consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients, which is then baked at a high temperature, traditionally in a wood-fired oven. A small pizza is sometimes called a pizzetta.
+        </p>
+        </MealContent>
+        </Meal>
         <MainPage>
 
-        <Titles>Position: Absolute Spicy Pizza</Titles>
-        <Details>
-            <Price>15.50 Euro</Price>
-            <Score>
-            <Score1>4.9</Score1>
-            <Score2>(200)</Score2>
-            </Score>
-            </Details>
-        <Description>As a Frontend Dev, if you're still using position: absolute, this very spicy pizza is perfect for you. Pizza is a savory Italian dish consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients, which is then baked at a high temperature, traditionally in a wood-fired oven. A small pizza is sometimes called a pizzetta.</Description>
-          
         <Form onSubmit={handleSubmit}>
 
         <SelectSizeDough>
@@ -490,16 +456,11 @@ function handleChange(event) {
         </OrderTexts>
         <PlaceOrder type="submit" disabled={!isValid} data-cy="submit-orderPizza-form">PLACE ORDER</PlaceOrder>
     </OrderTotal>
-
     </Summary>
-
     </Form>
-
     </MainPage>
     </PageWrapper>
+    <Footer/>
     </>
-  
-
   );
-  
 }
